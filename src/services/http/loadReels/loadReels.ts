@@ -1,20 +1,20 @@
 import { api } from '@/services/api';
 
-export const loadReel = async ({
+export const loadReelInfo = async ({
   mediaType = 'movie',
   id
 }: {
   id: number;
   mediaType?: string;
 }) => {
-  const reel = await api.get(`/${mediaType}/${id}`, {
+  const reelInfo = await api.get(`/${mediaType}/${id}`, {
     params: {
       api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
       language: 'pt-BR'
     }
   });
 
-  return reel;
+  return reelInfo;
 };
 
 export const loadReels = async ({

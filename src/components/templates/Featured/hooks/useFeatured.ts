@@ -1,17 +1,23 @@
-import { loadReel, loadReels } from '@/services/http';
+import { loadReelInfo, loadReels } from '@/services/http';
 import { useQuery } from '@tanstack/react-query';
 
+const loadFeatured = async () => {
+  const reels = await loadReels({ mediaType: 'movie' });
+
+  const reelRandom = await Promise.all(reels.results);
+  console.log(reelRandom);
+
+  const reelInfo = await loadReelInfo(
+    reelRandom[Math.floor(Math.random() * reelRandom.length)]
+  );
+
+  return reelInfo;
+};
+
 export const useFeatured = () => {
-  const { data: reels } = useQuery({
-    queryKey: ['reels'],
-    queryFn: () => loadReels({ mediaType: 'movie' })
-  });
-
-  const reel = reels?.results[Math.floor(Math.random() * reels.results.length)];
-
   const { data: featured, isLoading } = useQuery({
     queryKey: ['featured'],
-    queryFn: () => loadReel({ mediaType: 'movie', id: reel.id })
+    queryFn: () => loadFeatured()
   });
 
   return { featured, isLoading };
