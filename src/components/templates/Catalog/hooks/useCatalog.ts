@@ -1,10 +1,11 @@
-import { loadCategories, loadReels } from '@/services/http';
+import { loadCategories, loadReels, loadTrending } from '@/services/http';
 import { useQuery } from '@tanstack/react-query';
 
-import { Catalogs, Category, Reels } from '@/models';
+import { Catalogs, Category, Reel, Reels } from '@/models';
 
 // Carrega as categorias e os reels de cada categoria
 const loadCatalog = async () => {
+  const trendings = await loadTrending();
   const categories = await loadCategories({
     mediaType: 'movie'
   });
@@ -20,7 +21,16 @@ const loadCatalog = async () => {
     })
   );
 
-  return reelsAndCategories;
+  const catalogList = [
+    {
+      id: 1,
+      name: 'Recomendados para você',
+      reels: { results: trendings.results.map((reel: Reel) => reel) }
+    },
+    ...reelsAndCategories
+  ];
+
+  return catalogList;
 };
 
 export const useCatalog = () => {
