@@ -7,6 +7,7 @@ export const useCatalog = () => {
   const loadCatalog = async () => {
     const categories = await loadCategories({ mediaType: 'movie' });
 
+    // Mapea as categorias e carrega os reels de cada categoria
     const results = await Promise.all(
       categories.genres.map(async (category: Category) => {
         const reels: Reels = await loadReels({

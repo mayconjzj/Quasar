@@ -16,7 +16,7 @@ export const Catalog = () => {
         <Reels.Root key={category.id}>
           <Reels.Title>{category.name}</Reels.Title>
           <Reels.Content>
-            {category.reels.results.map((reel) => (
+            {category?.reels?.results.map((reel) => (
               <Image
                 key={reel.id}
                 src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${reel.poster_path}`}
