@@ -23,7 +23,7 @@ export const useCatalog = () => {
 
   const { data: catalog, isLoading } = useQuery<Catalogs>({
     queryKey: ['loadCatalog'],
-    queryFn: loadCatalog
+    queryFn: () => loadCatalog()
   });
 
   return { catalog, isLoading };
