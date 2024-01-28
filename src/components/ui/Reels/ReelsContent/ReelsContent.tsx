@@ -7,7 +7,7 @@ export const ReelsContent = ({
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div className={cn('flex overflow-auto gap-2', rest.className)} {...rest}>
+    <div className={cn('flex overflow-x-auto', rest.className)} {...rest}>
       {children}
     </div>
   );

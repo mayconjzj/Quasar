@@ -19,10 +19,11 @@ export const Catalog = () => {
             {category?.reels?.results.map((reel) => (
               <Image
                 key={reel.id}
+                className="scale-90 hover:scale-100 cursor-pointer duration-200"
                 src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${reel.poster_path}`}
                 alt={`${reel.title} poster`}
-                width={200}
-                height={300}
+                width={150}
+                height={225}
                 priority
               />
             ))}

@@ -7,7 +7,7 @@ export const ReelsRoot = ({
   children: React.ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <section className={cn('w-full', rest.className)} {...rest}>
+    <section className={cn('w-full my-[30px]', rest.className)} {...rest}>
       {children}
     </section>
   );

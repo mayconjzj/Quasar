@@ -18,4 +18,6 @@ export type Reel = {
   vote_count?: number;
 };
 
-export type Reels = Reel[];
+export type Reels = {
+  results: Reel[];
+};

@@ -8,7 +8,7 @@ export const useCatalog = () => {
     const categories = await loadCategories({ mediaType: 'movie' });
 
     // Mapea as categorias e carrega os reels de cada categoria
-    const results = await Promise.all(
+    const response = await Promise.all(
       categories.genres.map(async (category: Category) => {
         const reels: Reels = await loadReels({
           mediaType: 'movie',
@@ -19,7 +19,7 @@ export const useCatalog = () => {
       })
     );
 
-    return results;
+    return response;
   };
 
   const { data: catalog, isLoading } = useQuery<Catalogs>({
