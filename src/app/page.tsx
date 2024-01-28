@@ -28,6 +28,7 @@ export default function Home() {
                   alt={`${reel.title} poster`}
                   width={200}
                   height={300}
+                  priority
                 />
               ))}
             </ul>
