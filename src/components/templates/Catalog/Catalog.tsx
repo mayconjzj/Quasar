@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { Reels } from '@/components/Reels';
+import { Reels } from '@/components/ui/Reels';
 
 import { useCatalog } from './hooks/useCatalog';
 
