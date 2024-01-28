@@ -1,9 +1,9 @@
 'use client';
 
-import { useFeatured } from './hooks/useFeatured';
+import { useFeaturedInfo } from './hooks/useFeaturedInfo';
 
 export const Featured = () => {
-  const { featured, isLoading } = useFeatured();
+  const { featured, isLoading } = useFeaturedInfo();
 
   return (
     <div>

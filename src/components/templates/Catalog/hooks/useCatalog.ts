@@ -3,10 +3,12 @@ import { useQuery } from '@tanstack/react-query';
 
 import { Catalogs, Category, Reels } from '@/models';
 
+// Carrega as categorias e os reels de cada categoria
 const loadCatalog = async () => {
-  const categories = await loadCategories({ mediaType: 'movie' });
+  const categories = await loadCategories({
+    mediaType: 'movie'
+  });
 
-  // Mapea as categorias e carrega os reels de cada categoria
   const response = await Promise.all(
     categories.genres.map(async (category: Category) => {
       const reels: Reels = await loadReels({
@@ -24,7 +26,8 @@ const loadCatalog = async () => {
 export const useCatalog = () => {
   const { data: catalog, isLoading } = useQuery<Catalogs>({
     queryKey: ['loadCatalog'],
-    queryFn: () => loadCatalog()
+    queryFn: () => loadCatalog(),
+    staleTime: 7 * 24 * 60 * 60 * 1000 // 7 dias
   });
 
   return { catalog, isLoading };
