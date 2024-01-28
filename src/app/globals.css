@@ -74,8 +74,7 @@
     @apply bg-background text-foreground;
   }
 
-  body::-webkit-scrollbar {
+  *::-webkit-scrollbar {
     width: 0;
   }
-
 }
