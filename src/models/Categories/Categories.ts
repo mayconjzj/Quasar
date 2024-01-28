@@ -3,6 +3,4 @@ export type Category = {
   name: string;
 };
 
-export type Categories = {
-  genres: Category[];
-};
+export type Categories = Category[];

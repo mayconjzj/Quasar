@@ -41,7 +41,7 @@ export const loadHomeList = async ({ mediaType = 'movie' }: MediaType) => {
         mediaType,
         withGenres: category.id
       });
-      return { ...category, reels: reels.results };
+      return { ...category, reels: reels };
     })
   );
 
