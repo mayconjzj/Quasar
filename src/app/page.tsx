@@ -1,4 +1,4 @@
-import { Catalog } from '@/components/templates/Catalog/Catalog';
+import { Catalog } from '@/components/templates/Catalog';
 
 export default function Home() {
   return (
