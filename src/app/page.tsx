@@ -1,20 +1,23 @@
 'use client';
 
 import Image from 'next/image';
+import { useState } from 'react';
 
 import { loadHomeList } from '@/services/http/tmdb';
 import { useQuery } from '@tanstack/react-query';
 
-import { Reel } from '@/models/Reels';
+import { Reel } from '@/models';
 
 export default function Home() {
+  const [mediaType] = useState('movie');
+
   const { data: results, isLoading } = useQuery({
     queryKey: ['loadHomeList'],
-    queryFn: () => loadHomeList()
+    queryFn: () => loadHomeList({ mediaType })
   });
 
   return (
-    <main className="px-4">
+    <main>
       {isLoading && <p>Loading...</p>}
       <section>
         {results?.map((category) => (
