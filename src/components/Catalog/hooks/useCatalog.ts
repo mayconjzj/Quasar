@@ -1,16 +1,29 @@
-import { useState } from 'react';
-
-import { loadHomeList } from '@/services/http/tmdb';
+import { loadCategories, loadReels } from '@/services/http';
 import { useQuery } from '@tanstack/react-query';
 
-import { Catalogs } from '@/models';
+import { Catalogs, Category, Reels } from '@/models';
 
 export const useCatalog = () => {
-  const [mediaType] = useState('movie');
+  const loadCatalog = async () => {
+    const categories = await loadCategories({ mediaType: 'movie' });
+
+    const results = await Promise.all(
+      categories.genres.map(async (category: Category) => {
+        const reels: Reels = await loadReels({
+          mediaType: 'movie',
+          withGenres: category.id
+        });
+
+        return { ...category, reels: reels };
+      })
+    );
+
+    return results;
+  };
 
   const { data: catalog, isLoading } = useQuery<Catalogs>({
-    queryKey: ['loadHomeList'],
-    queryFn: () => loadHomeList({ mediaType })
+    queryKey: ['loadCatalog'],
+    queryFn: loadCatalog
   });
 
   return { catalog, isLoading };
