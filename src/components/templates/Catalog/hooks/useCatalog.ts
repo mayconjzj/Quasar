@@ -9,7 +9,7 @@ const loadCatalog = async () => {
     mediaType: 'movie'
   });
 
-  const response = await Promise.all(
+  const reelsAndCategories = await Promise.all(
     categories.genres.map(async (category: Category) => {
       const reels: Reels = await loadReels({
         mediaType: 'movie',
@@ -20,7 +20,7 @@ const loadCatalog = async () => {
     })
   );
 
-  return response;
+  return reelsAndCategories;
 };
 
 export const useCatalog = () => {

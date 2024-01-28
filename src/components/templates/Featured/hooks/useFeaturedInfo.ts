@@ -7,11 +7,11 @@ import { FeaturedInfo } from '@/models';
 const loadFeatured = async () => {
   const reels = await loadReels({ mediaType: 'movie' });
 
-  const reelInfo = await loadReelInfo(
+  const reelRandom = await loadReelInfo(
     reels.results[Math.floor(Math.random() * reels.results.length)]
   );
 
-  return reelInfo;
+  return reelRandom;
 };
 
 export const useFeaturedInfo = () => {
