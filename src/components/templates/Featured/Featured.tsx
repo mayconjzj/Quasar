@@ -1,5 +1,3 @@
-'use server';
-
 import { Button } from '@/components/ui/Button';
 
 import { firstDateYear } from '@/lib/utils';
