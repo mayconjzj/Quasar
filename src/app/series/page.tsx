@@ -13,7 +13,7 @@ export default async function Home() {
   );
 }
 
-export const getFeatured = async () => {
-  const res = await loadFeatured({ mediaType: 'movie' });
+const getFeatured = async () => {
+  const res = await loadFeatured({ mediaType: 'tv' });
   return res;
 };

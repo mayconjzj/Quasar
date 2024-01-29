@@ -14,7 +14,7 @@ export default async function Home() {
   );
 }
 
-export const getFeatured = async () => {
+const getFeatured = async () => {
   const res = await loadFeatured({ mediaType: 'movie' });
   return res;
 };
