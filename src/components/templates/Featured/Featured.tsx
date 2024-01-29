@@ -2,12 +2,10 @@ import { Button } from '@/components/ui/Button';
 
 import { firstDateYear } from '@/lib/utils';
 
-import { FeaturedInfo, MediaType } from '@/models';
+import { FeaturedInfo } from '@/models';
 
-import { useFeatured } from './hooks/useFeatured';
-
-export const Featured = async ({ mediaType }: MediaType) => {
-  const featured: FeaturedInfo = await useFeatured({ mediaType });
+export const Featured = async ({ data }: { data: FeaturedInfo }) => {
+  const featured = data;
 
   return (
     <article
