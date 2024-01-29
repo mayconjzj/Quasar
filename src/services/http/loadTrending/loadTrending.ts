@@ -1,7 +1,9 @@
 import { api } from '@/services/api';
 
-export const loadTrending = async () => {
-  const trendings = await api.get('/trending/all/week', {
+import { MediaType } from '@/models';
+
+export const loadTrending = async ({ mediaType }: MediaType) => {
+  const trendings = await api.get(`/trending/${mediaType ?? 'movie'}/week`, {
     params: {
       api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
       language: 'pt-BR',
