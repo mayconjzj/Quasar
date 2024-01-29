@@ -13,7 +13,7 @@ export const Catalog = ({ mediaType }: MediaType) => {
 
   return (
     <section className="px-2 md:px-[30px]">
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <div>Loading...</div>}
       {catalog?.map((category) => (
         <Reels.Root key={category.id}>
           <Reels.Title>{category.name}</Reels.Title>
