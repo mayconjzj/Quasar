@@ -11,14 +11,14 @@ export const Featured = () => {
 
   return (
     <article
-      className="h-[100vh] bg-cover bg-center"
+      className="h-[85vh] bg-cover bg-center"
       style={{
         backgroundImage: `url(${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${featured?.backdrop_path})`
       }}
     >
       {isLoading && <p>Loading...</p>}
-      <div className="w-screen h-screen bg-gradient-to-b from-black/5 to-transparent/100">
-        <div className="w-screen h-screen bg-gradient-to-l from-black/5 to-transparent/100">
+      <div className="w-full h-full bg-gradient-to-b from-black/5 to-transparent/100">
+        <div className="w-full h-full bg-gradient-to-l from-black/5 to-transparent/100">
           {featured && (
             <div className="flex flex-col gap-3 p-2 md:px-[30px] h-full justify-end md:justify-center">
               {featured?.title && (
@@ -53,7 +53,8 @@ export const Featured = () => {
               </div>
               {featured?.overview && (
                 <div className="max-w-[600px] text-[#aaa]">
-                  {featured.overview.slice(0, 350) + '...'}
+                  {featured.overview.slice(0, 350)}
+                  {featured.overview.length > 350 && '...'}
                 </div>
               )}
 

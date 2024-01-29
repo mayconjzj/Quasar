@@ -17,6 +17,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <header className="w-full absolute">
+            <nav>
+              <ul>
+                <li>Home</li>
+              </ul>
+            </nav>
+          </header>
           {children}
         </ContextProvider>
       </body>
