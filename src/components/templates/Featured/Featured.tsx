@@ -1,11 +1,13 @@
+import { loadFeatured } from '@/services/http';
+
 import { Button } from '@/components/ui/Button';
 
 import { firstDateYear } from '@/lib/utils';
 
-import { FeaturedInfo } from '@/models';
+import { FeaturedInfo, MediaType } from '@/models';
 
-export const Featured = async ({ data }: { data: FeaturedInfo }) => {
-  const featured = data;
+export const Featured = async ({ mediaType }: MediaType) => {
+  const featured: FeaturedInfo = await loadFeatured({ mediaType });
 
   return (
     <article
