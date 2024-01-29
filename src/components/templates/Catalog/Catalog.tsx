@@ -4,10 +4,12 @@ import Image from 'next/image';
 
 import { Reels } from '@/components/ui/Reels';
 
+import { MediaType } from '@/models';
+
 import { useCatalog } from './hooks/useCatalog';
 
-export const Catalog = () => {
-  const { catalog, isLoading } = useCatalog();
+export const Catalog = ({ mediaType }: MediaType) => {
+  const { catalog, isLoading } = useCatalog({ mediaType });
 
   return (
     <section className="px-2 md:px-[30px]">

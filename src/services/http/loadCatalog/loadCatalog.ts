@@ -1,9 +1,8 @@
-import { Category, Reel, Reels } from '@/models';
+import { Category, MediaType, Reel, Reels } from '@/models';
 
 import { loadCategories, loadReels, loadTrending } from '..';
 
-export const loadCatalog = async () => {
-  const mediaType = 'movie';
+export const loadCatalog = async ({ mediaType }: MediaType) => {
   const trendings = await loadTrending({ mediaType: mediaType });
   const categories = await loadCategories({
     mediaType: mediaType

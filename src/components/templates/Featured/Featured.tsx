@@ -4,10 +4,12 @@ import { Button } from '@/components/ui/Button';
 
 import { firstDateYear } from '@/lib/utils';
 
+import { MediaType } from '@/models';
+
 import { useFeatured } from './hooks/useFeatured';
 
-export const Featured = () => {
-  const { featured, isLoading } = useFeatured();
+export const Featured = ({ mediaType }: MediaType) => {
+  const { featured, isLoading } = useFeatured({ mediaType });
 
   return (
     <article

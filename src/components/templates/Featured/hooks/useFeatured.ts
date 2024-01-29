@@ -1,13 +1,12 @@
 import { loadFeatured } from '@/services/http';
 import { useQuery } from '@tanstack/react-query';
 
-import { FeaturedInfo } from '@/models';
+import { FeaturedInfo, MediaType } from '@/models';
 
-export const useFeatured = () => {
+export const useFeatured = ({ mediaType }: MediaType) => {
   const { data: featured, isLoading } = useQuery<FeaturedInfo>({
     queryKey: ['featured'],
-    queryFn: () => loadFeatured({ mediaType: 'movie' }),
-    staleTime: 7 * 24 * 60 * 60 * 1000 // 7 dias
+    queryFn: () => loadFeatured({ mediaType })
   });
 
   return { featured, isLoading };
