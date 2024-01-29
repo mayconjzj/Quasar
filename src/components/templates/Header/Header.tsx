@@ -32,8 +32,7 @@ export const Header = () => {
           <li className="hover:text-blue-500 duration-200 cursor-pointer">
             <Link
               href={{
-                pathname: '/dashboard',
-                query: { type: 'movie' }
+                pathname: '/dashboard/movies'
               }}
             >
               Filmes
@@ -42,8 +41,7 @@ export const Header = () => {
           <li className="hover:text-blue-500 duration-200 cursor-pointer">
             <Link
               href={{
-                pathname: '/dashboard',
-                query: { type: 'tv' }
+                pathname: '/dashboard/series'
               }}
             >
               Séries

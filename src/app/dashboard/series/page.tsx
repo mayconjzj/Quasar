@@ -4,8 +4,8 @@ import { Featured } from '@/components/templates/Featured';
 export default function Home() {
   return (
     <main>
-      <Featured mediaType="series" />
-      <Catalog mediaType="series" />
+      <Featured mediaType="tv" />
+      <Catalog mediaType="tv" />
     </main>
   );
 }
