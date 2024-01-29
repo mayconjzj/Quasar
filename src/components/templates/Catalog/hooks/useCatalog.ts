@@ -1,13 +1,24 @@
+import { useEffect } from 'react';
+
 import { loadCatalog } from '@/services/http';
 import { useQuery } from '@tanstack/react-query';
 
 import { Catalogs, MediaType } from '@/models';
 
 export const useCatalog = ({ mediaType }: MediaType) => {
-  const { data: catalog, isLoading } = useQuery<Catalogs>({
+  const {
+    data: catalog,
+    isLoading,
+    refetch
+  } = useQuery<Catalogs>({
     queryKey: ['loadCatalog'],
-    queryFn: () => loadCatalog({ mediaType })
+    queryFn: () => loadCatalog({ mediaType }),
+    enabled: false
   });
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
 
   return { catalog, isLoading };
 };
