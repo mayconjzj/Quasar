@@ -75,7 +75,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-inter;
+    @apply bg-background text-foreground;
+    font-family: 'Inter';
   }
 
   *::-webkit-scrollbar {

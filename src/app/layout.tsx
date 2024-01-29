@@ -1,6 +1,8 @@
 import '@/styles/globals.css';
 import { ContextProvider } from '@/contexts/context-provider';
 
+import { Header } from '@/components/templates/Header';
+
 import { cn } from '@/lib/utils';
 
 export default function RootLayout({
@@ -17,13 +19,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <header className="w-full absolute">
-            <nav>
-              <ul>
-                <li>Home</li>
-              </ul>
-            </nav>
-          </header>
+          <Header />
           {children}
         </ContextProvider>
       </body>
