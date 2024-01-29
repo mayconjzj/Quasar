@@ -1,7 +1,6 @@
-import Link from 'next/link';
-
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
+import { ActiveLink } from '@/components/ui/ActiveLink';
 import { Input } from '@/components/ui/Input';
 import { Label } from '@/components/ui/Label';
 
@@ -30,22 +29,10 @@ export const Header = () => {
 
         <ul className="flex gap-6 items-center font-bold">
           <li className="hover:text-blue-500 duration-200 cursor-pointer">
-            <Link
-              href={{
-                pathname: '/dashboard/movies'
-              }}
-            >
-              Filmes
-            </Link>
+            <ActiveLink href="/dashboard/movies">Filmes</ActiveLink>
           </li>
           <li className="hover:text-blue-500 duration-200 cursor-pointer">
-            <Link
-              href={{
-                pathname: '/dashboard/series'
-              }}
-            >
-              Séries
-            </Link>
+            <ActiveLink href="/dashboard/series">Séries</ActiveLink>
           </li>
         </ul>
       </nav>
