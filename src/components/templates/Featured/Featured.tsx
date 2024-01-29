@@ -16,8 +16,8 @@ export const Featured = () => {
         backgroundImage: `url(${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${featured?.backdrop_path})`
       }}
     >
-      <div className="w-full h-full bg-gradient-to-b from-black/5 to-transparent/100">
-        <div className="w-full h-full bg-gradient-to-l from-black/5 to-transparent/100">
+      <div className="w-full h-full bg-gradient-to-b to-black/100 from-transparent">
+        <div className="w-full h-full bg-gradient-to-l to-black/100 from-transparent">
           <div className="flex flex-col gap-3 p-2 md:px-[30px] h-full justify-end md:justify-center">
             {isLoading && <p>Loading...</p>}
             {featured?.title && (
