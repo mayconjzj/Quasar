@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
+import { loadCatalog } from '@/services/http';
+
 import { Reels } from '@/components/ui/Reels';
 
 import { Catalogs, MediaType } from '@/models';
 
-import { useCatalog } from './hooks/useCatalog';
-
 export const Catalog = async ({ mediaType }: MediaType) => {
-  const catalog: Catalogs = await useCatalog({ mediaType });
+  const catalog: Catalogs = await loadCatalog({ mediaType });
 
   return (
     <section className="px-2 md:px-[30px]">
