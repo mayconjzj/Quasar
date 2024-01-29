@@ -29,10 +29,10 @@ export const Header = () => {
 
         <ul className="flex gap-6 items-center font-bold">
           <li className="hover:text-blue-500 duration-200 cursor-pointer">
-            <ActiveLink href="/dashboard/movies">Filmes</ActiveLink>
+            <ActiveLink href="/movies">Filmes</ActiveLink>
           </li>
           <li className="hover:text-blue-500 duration-200 cursor-pointer">
-            <ActiveLink href="/dashboard/series">Séries</ActiveLink>
+            <ActiveLink href="/series">Séries</ActiveLink>
           </li>
         </ul>
       </nav>
