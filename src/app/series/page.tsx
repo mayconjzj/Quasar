@@ -1,11 +1,19 @@
+import { loadFeatured } from '@/services/http';
+
 import { Catalog } from '@/components/templates/Catalog';
 import { Featured } from '@/components/templates/Featured';
 
-export default function Home() {
+export default async function Home() {
+  const data = await getFeatured();
   return (
     <main>
-      <Featured mediaType="tv" />
+      <Featured data={data} />
       <Catalog mediaType="tv" />
     </main>
   );
 }
+
+export const getFeatured = async () => {
+  const res = await loadFeatured({ mediaType: 'movie' });
+  return res;
+};
