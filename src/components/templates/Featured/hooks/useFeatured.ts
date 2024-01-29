@@ -6,7 +6,7 @@ import { FeaturedInfo } from '@/models';
 export const useFeatured = () => {
   const { data: featured, isLoading } = useQuery<FeaturedInfo>({
     queryKey: ['featured'],
-    queryFn: () => loadFeatured(),
+    queryFn: () => loadFeatured({ mediaType: 'movie' }),
     staleTime: 7 * 24 * 60 * 60 * 1000 // 7 dias
   });
 

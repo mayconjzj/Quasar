@@ -10,7 +10,7 @@ export const Catalog = () => {
   const { catalog, isLoading } = useCatalog();
 
   return (
-    <>
+    <section className="px-2 md:px-[30px]">
       {isLoading && <p>Loading...</p>}
       {catalog?.map((category) => (
         <Reels.Root key={category.id}>
@@ -30,6 +30,6 @@ export const Catalog = () => {
           </Reels.Content>
         </Reels.Root>
       ))}
-    </>
+    </section>
   );
 };
