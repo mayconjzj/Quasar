@@ -1,9 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { PulseLoader } from 'react-spinners';
 
 import { Reels } from '@/components/ui/Reels';
+import { Skeleton } from '@/components/ui/skeleton';
 
 import { MediaType } from '@/models';
 
@@ -11,10 +11,25 @@ import { useCatalog } from './hooks/useCatalog';
 
 export const Catalog = ({ mediaType }: MediaType) => {
   const { catalog, isLoading } = useCatalog({ mediaType });
+  const repetitions = Array.from({ length: 10 });
 
   return (
     <section className="px-2 md:px-[30px]">
-      <PulseLoader color="white" loading={isLoading} size={10} />
+      {isLoading && (
+        <>
+          {repetitions.map((_, i) => (
+            <div key={i} className="flex flex-col gap-4">
+              <Skeleton className=" w-[200px] h-10" />
+              <div className="flex items-center gap-2 overflow-auto">
+                {repetitions.map((_, i) => (
+                  <Skeleton key={i} className="min-w-[150px] h-[225px] " />
+                ))}
+              </div>
+            </div>
+          ))}
+        </>
+      )}
+
       {catalog?.map((category) => (
         <Reels.Root key={category.id}>
           <Reels.Title>{category.name}</Reels.Title>

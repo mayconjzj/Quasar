@@ -1,24 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { loadFeatured } from '@/services/http';
-import { useQuery } from '@tanstack/react-query';
 
 import { FeaturedInfo, MediaType } from '@/models';
 
 export const useFeatured = ({ mediaType }: MediaType) => {
-  const {
-    data: featured,
-    isLoading,
-    refetch
-  } = useQuery<FeaturedInfo>({
-    queryKey: ['featured'],
-    queryFn: () => loadFeatured({ mediaType }),
-    enabled: false
-  });
+  const [featured, setFeatured] = useState<FeaturedInfo>();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const fetchData = async ({ mediaType }: MediaType) => {
+    try {
+      setIsLoading(true);
+      const data = await loadFeatured({ mediaType });
+      setFeatured(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    refetch();
-  }, [refetch]);
+    fetchData({ mediaType });
+  }, [mediaType]);
 
   return { featured, isLoading };
 };
