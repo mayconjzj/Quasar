@@ -11,13 +11,13 @@ export const Header = () => {
         <h1 className="text-3xl font-black text-blue-500">Quasar</h1>
       </div>
 
-      <nav className="md:flex items-center w-[60vw] justify-between hidden">
+      <nav className="md:flex items-center w-[58vw] justify-between hidden">
         <form className="flex gap-x-1 items-center border-white border-[0.5px] rounded-full px-2">
           <Input
             type="text"
             placeholder="Pesquisar"
             id="search"
-            className="w-40 h-8 border-none focus:bg-transparent"
+            className="w-48 h-9 border-none focus:bg-transparent"
             autoComplete="off"
           />
           <Label htmlFor="search">
