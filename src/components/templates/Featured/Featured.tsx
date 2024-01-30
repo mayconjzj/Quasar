@@ -1,12 +1,12 @@
 'use client';
 
 import { Button } from '@/components/ui/Button';
-import { Skeleton } from '@/components/ui/Skeleton';
 
 import { firstDateYear } from '@/lib/utils';
 
 import { MediaType } from '@/models';
 
+import { Loading } from './components/Loading';
 import { useFeatured } from './hooks/useFeatured';
 
 export const Featured = ({ mediaType }: MediaType) => {
@@ -22,7 +22,7 @@ export const Featured = ({ mediaType }: MediaType) => {
       <div className="w-full h-full bg-gradient-to-b to-black/100 from-transparent">
         <div className="w-full h-full bg-gradient-to-l to-black/100 from-transparent">
           <div className="flex flex-col gap-3 p-2 md:px-[30px] h-full justify-end md:justify-center">
-            {isLoading && <Skeleton className="w-full h-[85vh]" />}
+            {isLoading && <Loading />}
             <div className="flex items-center justify-center"></div>
             {featured?.title && (
               <div className="font-bold text-5xl">{featured.title}</div>
