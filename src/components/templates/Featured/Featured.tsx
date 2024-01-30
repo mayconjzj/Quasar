@@ -1,16 +1,14 @@
-'use client';
+import { loadFeatured } from '@/services/http';
 
 import { Button } from '@/components/ui/Button';
-import { Skeleton } from '@/components/ui/Skeleton/Skeleton';
+// import { Skeleton } from '@/components/ui/Skeleton';
 
 import { firstDateYear } from '@/lib/utils';
 
-import { MediaType } from '@/models';
+import { FeaturedInfo, MediaType } from '@/models';
 
-import { useFeatured } from './hooks/useFeatured';
-
-export const Featured = ({ mediaType }: MediaType) => {
-  const { featured, isLoading } = useFeatured({ mediaType });
+export const Featured = async ({ mediaType }: MediaType) => {
+  const featured: FeaturedInfo = await loadFeatured({ mediaType });
 
   return (
     <article
@@ -23,7 +21,7 @@ export const Featured = ({ mediaType }: MediaType) => {
         <div className="w-full h-full bg-gradient-to-l to-black/100 from-transparent">
           <div className="flex flex-col gap-3 p-2 md:px-[30px] h-full justify-end md:justify-center">
             <div className="flex items-center justify-center"></div>
-            {isLoading && <Skeleton className="w-full h-[85vh]"></Skeleton>}
+            {/* {isLoading && <Skeleton className="w-full h-[85vh]"></Skeleton>} */}
             {featured?.title && (
               <div className="font-bold text-5xl">{featured.title}</div>
             )}
