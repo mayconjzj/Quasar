@@ -27,13 +27,13 @@ export const Header = () => {
       <nav className="md:flex items-center justify-between hidden">
         <ul className="flex gap-4 items-center font-bold">
           <li>
-            <ActiveLink button href="/movies">
+            <ActiveLink button={true} href="/movies">
               {' '}
               Filmes
             </ActiveLink>
           </li>
           <li>
-            <ActiveLink button href="/series">
+            <ActiveLink button={true} href="/series">
               Séries
             </ActiveLink>
           </li>
