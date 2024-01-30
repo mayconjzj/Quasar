@@ -9,6 +9,15 @@ const nextConfig = {
         pathname: '/t/p/**'
       }
     ]
+  },
+  redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/movies',
+        permanent: true
+      }
+    ];
   }
 };
 
