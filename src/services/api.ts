@@ -10,7 +10,11 @@ const instance = axios.create({
 
 export const api = {
   get: async (endpoint: string, options?: AxiosRequestConfig) => {
-    const response = await instance.get(endpoint, options);
-    return response.data;
+    try {
+      const response = await instance.get(endpoint, options);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 };

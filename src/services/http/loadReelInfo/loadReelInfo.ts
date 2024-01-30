@@ -8,12 +8,16 @@ export const loadReelInfo = async ({
 }: {
   id: number;
 } & MediaType) => {
-  const reelInfo = await api.get(`/${mediaType ?? 'movie'}/${id}`, {
-    params: {
-      api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
-      language: 'pt-BR'
-    }
-  });
+  try {
+    const reelInfo = await api.get(`/${mediaType ?? 'movie'}/${id}`, {
+      params: {
+        api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
+        language: 'pt-BR'
+      }
+    });
 
-  return reelInfo;
+    return reelInfo;
+  } catch (error) {
+    console.log('erro ao carregar informações do destaque', error);
+  }
 };
