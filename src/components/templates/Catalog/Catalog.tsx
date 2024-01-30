@@ -3,7 +3,7 @@
 import Image from 'next/image';
 
 import { Reels } from '@/components/ui/Reels';
-import { Skeleton } from '@/components/ui/skeleton';
+import { Skeleton } from '@/components/ui/Skeleton/Skeleton';
 
 import { MediaType } from '@/models';
 
