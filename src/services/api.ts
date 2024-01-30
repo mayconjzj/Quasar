@@ -14,7 +14,7 @@ export const api = {
       const response = await instance.get(endpoint, options);
       return response.data;
     } catch (error) {
-      console.log(error);
+      console.log('Error ao buscar os dados - ', error);
     }
   }
 };
