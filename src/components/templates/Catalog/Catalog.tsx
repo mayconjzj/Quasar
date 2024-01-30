@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { PulseLoader } from 'react-spinners';
 
 import { Reels } from '@/components/ui/Reels';
 
@@ -13,7 +14,7 @@ export const Catalog = ({ mediaType }: MediaType) => {
 
   return (
     <section className="px-2 md:px-[30px]">
-      {isLoading && <div>Loading...</div>}
+      <PulseLoader color="white" loading={isLoading} size={10} />
       {catalog?.map((category) => (
         <Reels.Root key={category.id}>
           <Reels.Title>{category.name}</Reels.Title>

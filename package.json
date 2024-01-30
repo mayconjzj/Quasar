@@ -22,6 +22,7 @@
     "query": "github:tanstack/react-query",
     "react": "^18",
     "react-dom": "^18",
+    "react-spinners": "^0.13.8",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
   },

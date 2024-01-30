@@ -1,5 +1,7 @@
 'use client';
 
+import { PulseLoader } from 'react-spinners';
+
 import { Button } from '@/components/ui/Button';
 
 import { firstDateYear } from '@/lib/utils';
@@ -21,7 +23,9 @@ export const Featured = ({ mediaType }: MediaType) => {
       <div className="w-full h-full bg-gradient-to-b to-black/100 from-transparent">
         <div className="w-full h-full bg-gradient-to-l to-black/100 from-transparent">
           <div className="flex flex-col gap-3 p-2 md:px-[30px] h-full justify-end md:justify-center">
-            {isLoading && <div>Loading...</div>}
+            <div className="flex items-center justify-center">
+              <PulseLoader color="white" loading={isLoading} size={10} />
+            </div>
             {featured?.title && (
               <div className="font-bold text-5xl">{featured.title}</div>
             )}
