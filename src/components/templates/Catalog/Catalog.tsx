@@ -1,16 +1,19 @@
-import Image from 'next/image';
+'use client';
 
-import { loadCatalog } from '@/services/http';
+import Image from 'next/image';
 
 import { Reels } from '@/components/ui/Reels';
 
-import { Catalogs, MediaType } from '@/models';
+import { MediaType } from '@/models';
 
-export const Catalog = async ({ mediaType }: MediaType) => {
-  const catalog: Catalogs = await loadCatalog({ mediaType });
+import { useCatalog } from './hooks/useCatalog';
+
+export const Catalog = ({ mediaType }: MediaType) => {
+  const { catalog, isLoading } = useCatalog({ mediaType });
 
   return (
     <section className="px-2 md:px-[30px]">
+      {isLoading && <div>Loading...</div>}
       {catalog?.map((category) => (
         <Reels.Root key={category.id}>
           <Reels.Title>{category.name}</Reels.Title>
