@@ -3,12 +3,13 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { cn } from '@/lib/utils';
+import { twMerge } from 'tailwind-merge';
 
 type ActiveLinkProps = {
   href: string;
   children: React.ReactNode;
   className?: string;
+  button?: boolean;
 } & React.HTMLAttributes<HTMLAnchorElement>;
 
 export const ActiveLink = ({ children, ...rest }: ActiveLinkProps) => {
@@ -17,9 +18,12 @@ export const ActiveLink = ({ children, ...rest }: ActiveLinkProps) => {
 
   return (
     <Link
-      className={cn(
+      className={twMerge(
         'hover:text-blue-500 duration-200 cursor-pointer',
         isActive && 'text-blue-500',
+        rest.button &&
+          'text-white px-4 py-2 rounded-full border-blue-500 border-[1px] hover:text-white hover:bg-blue-500',
+        isActive && rest.button && 'bg-blue-500',
         rest.className
       )}
       {...rest}

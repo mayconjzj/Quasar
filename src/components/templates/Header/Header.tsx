@@ -12,27 +12,30 @@ export const Header = () => {
       </div>
 
       <nav className="md:flex items-center w-[60vw] justify-between hidden">
-        <form className="gap-x-1 items-center flex">
-          <div className="flex items-center border-white border-[0.5px] rounded-full px-2">
-            <Input
-              type="text"
-              placeholder="Pesquisar"
-              id="search"
-              className="w-40 h-8 border-none focus:bg-transparent"
-              autoComplete="off"
-            />
-            <Label htmlFor="search">
-              <MagnifyingGlassIcon className="w-[25px] h-[25px]" />
-            </Label>
-          </div>
+        <form className="flex gap-x-1 items-center border-white border-[0.5px] rounded-full px-2">
+          <Input
+            type="text"
+            placeholder="Pesquisar"
+            id="search"
+            className="w-40 h-8 border-none focus:bg-transparent"
+            autoComplete="off"
+          />
+          <Label htmlFor="search">
+            <MagnifyingGlassIcon className="w-[25px] h-[25px]" />
+          </Label>
         </form>
 
         <ul className="flex gap-6 items-center font-bold">
-          <li className="hover:text-blue-500 duration-200 cursor-pointer">
-            <ActiveLink href="/movies">Filmes</ActiveLink>
+          <li>
+            <ActiveLink button href="/movies">
+              {' '}
+              Filmes
+            </ActiveLink>
           </li>
-          <li className="hover:text-blue-500 duration-200 cursor-pointer">
-            <ActiveLink href="/series">Séries</ActiveLink>
+          <li>
+            <ActiveLink button href="/series">
+              Séries
+            </ActiveLink>
           </li>
         </ul>
       </nav>
