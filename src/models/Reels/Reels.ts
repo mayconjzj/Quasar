@@ -1,7 +1,7 @@
 export type Reel = {
   adult?: boolean;
   backdrop_path?: string;
-  id: string;
+  id: number;
   title?: string;
   name?: string;
   original_language?: string;

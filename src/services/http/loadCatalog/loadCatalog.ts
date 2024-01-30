@@ -1,15 +1,13 @@
-import { Category, MediaType, Reel, Reels } from '@/models';
+import { MediaType, Reel, Reels } from '@/models';
 
 import { loadCategories, loadReels, loadTrending } from '..';
 
 export const loadCatalog = async ({ mediaType }: MediaType) => {
-  const trendings = await loadTrending({ mediaType: mediaType });
-  const categories = await loadCategories({
-    mediaType: mediaType
-  });
+  const trendings = await loadTrending({ mediaType });
+  const categories = await loadCategories({ mediaType });
 
   const reelsAndCategories = await Promise.all(
-    categories.genres.map(async (category: Category) => {
+    categories.genres.map(async (category) => {
       const reels: Reels = await loadReels({
         mediaType: mediaType,
         withGenres: category.id
