@@ -25,7 +25,7 @@ export const Catalog = ({ mediaType }: MediaType) => {
                 key={reel.id}
                 className="scale-90 hover:scale-100 cursor-pointer duration-200"
                 src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${reel.poster_path}`}
-                alt={`${reel.title} poster`}
+                alt={`${reel.title || reel.name} poster`}
                 width={150}
                 height={225}
                 priority
