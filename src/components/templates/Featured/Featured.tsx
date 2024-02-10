@@ -19,10 +19,11 @@ export const Featured = async ({ mediaType }: MediaType) => {
       <article className="h-[85vh]">
         <div className="relative w-full h-full">
           <Image
-            src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/original${featured?.backdrop_path}`}
+            src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w1280${featured?.backdrop_path}`}
             alt="Featured Image"
             fill
             objectFit="cover"
+            unoptimized
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b to-black/100 from-transparent"></div>
