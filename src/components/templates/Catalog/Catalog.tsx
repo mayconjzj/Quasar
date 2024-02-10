@@ -24,12 +24,12 @@ export const Catalog = async ({ mediaType }: MediaType) => {
                   {reel.poster_path && (
                     <Image
                       className="scale-90 hover:scale-100 cursor-pointer duration-200 min-w-[150px]"
-                      src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${reel.poster_path}`}
+                      src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w200${reel.poster_path}`}
                       alt={`${reel.title || reel.name}`}
                       width={150}
                       height={225}
                       unoptimized
-                      loading="lazy"
+                      priority
                     />
                   )}
                 </Suspense>
