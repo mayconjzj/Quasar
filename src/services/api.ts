@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
+  baseURL: process.env.NEXT_PUBLIC_TMDB_BASE_URL,
   headers: {
     Accept: 'application/json;charset=utf-8',
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
