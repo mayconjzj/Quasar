@@ -28,7 +28,6 @@ export const Catalog = ({ mediaType }: MediaType) => {
                 alt={`${reel.title || reel.name} poster`}
                 width={150}
                 height={225}
-                style={{ width: '150px', height: 'auto' }}
                 priority
               />
             ))}
