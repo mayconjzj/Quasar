@@ -29,8 +29,7 @@ export const Catalog = async ({ mediaType }: MediaType) => {
                       width={150}
                       height={225}
                       unoptimized
-                      priority
-                      quality={10}
+                      loading="lazy"
                     />
                   )}
                 </Suspense>
