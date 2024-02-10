@@ -28,7 +28,7 @@ export const Catalog = async ({ mediaType }: MediaType) => {
                       alt={`${reel.title || reel.name}`}
                       width={150}
                       height={225}
-                      priority
+                      unoptimized
                     />
                   )}
                 </Suspense>
