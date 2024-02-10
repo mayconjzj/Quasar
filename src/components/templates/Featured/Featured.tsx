@@ -4,18 +4,17 @@ import { Suspense } from 'react';
 import { loadFeatured } from '@/services/http';
 
 import { Button } from '@/components/ui/Button';
+import { Skeleton } from '@/components/ui/Skeleton';
 
 import { firstDateYear } from '@/lib/utils';
 
 import { MediaType } from '@/models';
 
-import { Loading } from './components/Loading';
-
 export const Featured = async ({ mediaType }: MediaType) => {
   const featured = await loadFeatured({ mediaType });
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Skeleton className="w-full h-[85vh}" />}>
       <article className="h-[85vh]">
         <div className="relative w-full h-full">
           <Image

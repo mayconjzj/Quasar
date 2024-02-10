@@ -9,8 +9,7 @@ type LoadReelInfo = {
 export const loadReelInfo = async ({ mediaType, id }: LoadReelInfo) => {
   const reelInfo = (await api.get({
     endpoint: `/${mediaType ?? 'movie'}/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=pt-BR`,
-    cache: 'no-store',
-    timeout: 30000
+    cache: 'no-store'
   })) as Reel;
 
   return reelInfo;
