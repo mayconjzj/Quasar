@@ -18,7 +18,7 @@ export const Featured = async ({ mediaType }: MediaType) => {
       <article
         className="h-[85vh] bg-cover bg-center"
         style={{
-          backgroundImage: `url(${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${featured?.backdrop_path})`
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w1280${featured?.backdrop_path})`
         }}
       >
         <div className="w-full h-full bg-gradient-to-b to-black/100 from-transparent">
