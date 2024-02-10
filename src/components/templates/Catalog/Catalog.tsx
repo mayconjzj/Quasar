@@ -23,7 +23,7 @@ export const Catalog = async ({ mediaType }: MediaType) => {
                 <Suspense key={reel.id} fallback={<LoadingCard />}>
                   {reel.poster_path && (
                     <Image
-                      className="scale-90 hover:scale-100 cursor-pointer duration-200 min-w-[150px]"
+                      className="scale-90 hover:scale-100 cursor-pointer duration-200"
                       src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}${reel.poster_path}`}
                       alt={`${reel.title || reel.name}`}
                       width={150}
