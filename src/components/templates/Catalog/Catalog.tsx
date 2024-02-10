@@ -29,6 +29,7 @@ export const Catalog = ({ mediaType }: MediaType) => {
                 width={150}
                 height={225}
                 style={{ width: '150px', height: 'auto' }}
+                priority
               />
             ))}
           </Reels.Content>
