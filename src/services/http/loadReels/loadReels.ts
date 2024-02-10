@@ -2,19 +2,15 @@ import { api } from '@/services/api';
 
 import { MediaType, Reels } from '@/models';
 
-export const loadReels = async ({
-  mediaType,
-  withGenres
-}: {
+type LoadReels = {
   withGenres?: number;
-} & MediaType) => {
-  const reels: Reels = await api.get(`/discover/${mediaType ?? 'movie'}`, {
-    params: {
-      api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY,
-      with_genres: withGenres,
-      language: 'pt-BR'
-    }
-  });
+} & MediaType;
+
+export const loadReels = async ({ mediaType, withGenres }: LoadReels) => {
+  const reels = (await api.get({
+    endpoint: `/discover/${mediaType ?? 'movie'}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&with_genres=${withGenres}&language=pt-BR`,
+    cache: 'no-store'
+  })) as Reels;
 
   return reels;
 };
