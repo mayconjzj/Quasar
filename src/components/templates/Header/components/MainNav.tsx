@@ -6,15 +6,10 @@ export const MainNav = () => {
     <nav className="md:flex items-center justify-between hidden">
       <List.Root>
         <List.Item>
-          <ActiveLink button={true} href="/movies">
-            {' '}
-            Filmes
-          </ActiveLink>
+          <ActiveLink href="/movies"> Filmes</ActiveLink>
         </List.Item>
         <List.Item>
-          <ActiveLink button={true} href="/series">
-            Séries
-          </ActiveLink>
+          <ActiveLink href="/series">Séries</ActiveLink>
         </List.Item>
       </List.Root>
     </nav>

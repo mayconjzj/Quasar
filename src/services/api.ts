@@ -1,6 +1,7 @@
 type AxiosRequestConfig = {
   endpoint: string;
   cache?: RequestCache;
+  timeout?: number;
 };
 
 export const api = {
