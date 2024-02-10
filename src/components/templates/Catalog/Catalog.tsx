@@ -28,8 +28,7 @@ export const Catalog = async ({ mediaType }: MediaType) => {
                       alt={`${reel.title || reel.name} poster`}
                       width={150}
                       height={225}
-                      unoptimized
-                      loading="lazy"
+                      priority
                     />
                   )}
                 </Suspense>
