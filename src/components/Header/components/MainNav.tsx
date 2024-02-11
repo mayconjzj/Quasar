@@ -6,10 +6,10 @@ export const MainNav = () => {
     <nav className="md:flex items-center justify-between hidden">
       <List.Root>
         <List.Item>
-          <ActiveLink href="/movies"> Filmes</ActiveLink>
+          <ActiveLink href="/discover/movies"> Filmes</ActiveLink>
         </List.Item>
         <List.Item>
-          <ActiveLink href="/tv">Séries</ActiveLink>
+          <ActiveLink href="/discover/series">Séries</ActiveLink>
         </List.Item>
       </List.Root>
     </nav>

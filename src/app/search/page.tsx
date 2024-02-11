@@ -1,6 +1,7 @@
 import { fetchSearch } from '@/services/http/fetchSearch';
 
-import { SearchPagination } from '@/components/SearchPagination';
+import { Pagination } from '@/components/Pagination';
+import { PaginationLinks } from '@/components/PaginationLinks';
 import { SearchResults } from '@/components/SearchResults';
 
 import { SearchProps } from '@/models/Search';
@@ -12,16 +13,24 @@ export default async function Search({ searchParams }: SearchProps) {
   });
 
   return (
-    <main className="pt-12 px-8">
-      <h1 className="text-2xl font-bold">
-        Resultados da buascar por: {searchParams.query}
-      </h1>
-      <SearchResults data={dataSearch} />
+    <main className="pt-[70px] px-8">
+      <SearchResults.Root>
+        {dataSearch.results.length === 0 && <SearchResults.NoResult />}
 
-      <SearchPagination
-        total_pages={dataSearch.total_pages}
-        searchParams={searchParams}
-      />
+        {dataSearch.results.map((result) => (
+          <SearchResults.Item key={result.id} result={result} />
+        ))}
+      </SearchResults.Root>
+
+      <Pagination.Root className="my-8">
+        <Pagination.Content>
+          <PaginationLinks
+            currentPage={dataSearch.page}
+            totalPages={dataSearch.total_pages}
+            query={searchParams.query}
+          />
+        </Pagination.Content>
+      </Pagination.Root>
     </main>
   );
 }
