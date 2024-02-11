@@ -9,7 +9,9 @@ import { Skeleton } from '@/components/Skeleton';
 
 import { firstDateYear } from '@/lib/utils';
 
-export default async function Movies({
+import * as S from './styles';
+
+export default async function Discover({
   params
 }: {
   params: { media_type: string };
@@ -19,79 +21,56 @@ export default async function Movies({
   const dataTopRated = await fetchTopRated({ mediaType });
 
   return (
-    <main>
-      <article className="h-[85vh]">
-        <div className="relative w-full h-full">
-          <Suspense fallback={<Skeleton className="w-full h-[85vh}" />}>
-            <Image
-              className="object-cover"
-              src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w1280${dataTopRated?.backdrop_path}`}
-              alt="dataTopRated Image"
-              fill
-              unoptimized
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b to-black/100 from-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-l to-black/100 from-transparent"></div>
-            <div className="absolute flex flex-col gap-3 p-2 md:px-[30px] h-full justify-end md:justify-center">
-              {dataTopRated?.title && (
-                <div className="font-bold text-5xl">{dataTopRated.title}</div>
-              )}
-              {dataTopRated?.name && (
-                <div className="font-bold text-5xl">{dataTopRated.name}</div>
-              )}
-
-              <div className="text-[18px] font-bold flex gap-3">
+    <S.Container>
+      <S.TopRated>
+        <Suspense fallback={<Skeleton className="w-full h-[85vh}" />}>
+          <Image
+            className="object-cover"
+            src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w1280${dataTopRated?.backdrop_path}`}
+            alt="dataTopRated Image"
+            fill
+            unoptimized
+            priority
+          />
+          <S.GradientBottom />
+          <S.GradientLeft />
+          <S.Details>
+            <S.Title>{dataTopRated?.title || dataTopRated?.name}</S.Title>
+            <S.MediaDetails>
+              <S.Item>
                 {dataTopRated?.vote_average && (
-                  <div>
+                  <>
                     {dataTopRated.vote_average}{' '}
                     <span className="text-[#46d369]">pontos</span>
-                  </div>
+                  </>
                 )}
-
-                {dataTopRated?.release_date && (
-                  <div>{firstDateYear(dataTopRated.release_date)}</div>
-                )}
-                {dataTopRated?.first_air_date && (
-                  <div>{firstDateYear(dataTopRated.first_air_date)}</div>
-                )}
-
-                {dataTopRated?.number_of_seasons && (
-                  <div>{dataTopRated.number_of_seasons} temporadas</div>
-                )}
-
-                {dataTopRated?.runtime && (
-                  <div>{dataTopRated.runtime + ' minutos'}</div>
-                )}
-              </div>
-
-              {dataTopRated?.overview && (
-                <div className="max-w-[600px] text-[#aaa]">
-                  {dataTopRated.overview.slice(0, 350)}
-                  {dataTopRated.overview.length > 350 && '...'}
-                </div>
-              )}
-
-              {dataTopRated && (
-                <div className="flex gap-2">
-                  <Button>Detalhes</Button>
-                </div>
-              )}
-
-              {dataTopRated?.genres && (
-                <div>
-                  <span className="font-bold">Gêneros: </span>
-                  <span className="text-[#aaa]">
-                    {dataTopRated.genres.map((genre) => genre.name).join(', ')}{' '}
-                  </span>
-                </div>
-              )}
-            </div>
-          </Suspense>
-        </div>
-      </article>
-
-      <section className="px-2 md:px-[30px]">
+              </S.Item>
+              <S.Item>
+                {dataTopRated?.release_date &&
+                  firstDateYear(dataTopRated.release_date)}
+                {dataTopRated?.first_air_date &&
+                  firstDateYear(dataTopRated.first_air_date)}
+              </S.Item>
+              <S.Item>
+                {dataTopRated.runtime && `${dataTopRated.runtime} minutos`}
+                {dataTopRated.number_of_seasons &&
+                  `${dataTopRated.number_of_seasons} temporadas`}
+              </S.Item>
+            </S.MediaDetails>
+            <S.Overview>{dataTopRated.overview}</S.Overview>
+            <S.ContentButton>
+              <Button>Detalhes</Button>
+            </S.ContentButton>
+            <S.Item>
+              <span className="font-bold">Gêneros: </span>
+              <span className="text-[#aaa]">
+                {dataTopRated.genres?.map((genre) => genre.name).join(', ')}{' '}
+              </span>
+            </S.Item>
+          </S.Details>
+        </Suspense>
+      </S.TopRated>
+      <S.Collection>
         <Suspense fallback={<Skeleton className="w-[200px] h-10" />}>
           {dataCollection.map((category) => (
             <MediaGallery.Root key={category.id}>
@@ -124,7 +103,7 @@ export default async function Movies({
             </MediaGallery.Root>
           ))}
         </Suspense>
-      </section>
-    </main>
+      </S.Collection>
+    </S.Container>
   );
 }

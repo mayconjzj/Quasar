@@ -6,6 +6,8 @@ import { SearchResults } from '@/components/SearchResults';
 
 import { SearchProps } from '@/models/Search';
 
+import * as S from './styles';
+
 export default async function Search({ searchParams }: SearchProps) {
   const dataSearch = await fetchSearch({
     query: searchParams.query,
@@ -13,7 +15,7 @@ export default async function Search({ searchParams }: SearchProps) {
   });
 
   return (
-    <main className="pt-[70px] px-8">
+    <S.Container>
       <SearchResults.Root>
         {dataSearch.results.length === 0 && <SearchResults.NoResult />}
 
@@ -31,6 +33,6 @@ export default async function Search({ searchParams }: SearchProps) {
           />
         </Pagination.Content>
       </Pagination.Root>
-    </main>
+    </S.Container>
   );
 }
