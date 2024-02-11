@@ -17,7 +17,7 @@ export default async function Search({ searchParams }: SearchProps) {
       <h1 className="text-2xl font-bold">
         Resultados da buascar por: {searchParams.query}
       </h1>
-      <div className="w-full h-screen flex flex-wrap justify-evenly">
+      <div className="w-full flex flex-wrap justify-evenly">
         {data.results.length === 0 && (
           <div className="flex flex-col items-center gap-2">
             <p className="mt-8">Nenhum resultado encontrado</p>
