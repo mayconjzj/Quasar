@@ -9,7 +9,7 @@ export const useSearch = () => {
     search: z.string().min(1)
   });
 
-  const { register, handleSubmit, getValues } = useForm({
+  const { register, handleSubmit, getValues, setValue } = useForm({
     resolver: zodResolver(schema)
   });
 
@@ -18,6 +18,7 @@ export const useSearch = () => {
   const redirectSearch = handleSubmit(() => {
     const { search } = getValues();
     push(`/search?query=${search}`);
+    setValue('search', '');
   });
 
   return { register, redirectSearch };

@@ -7,7 +7,7 @@ import { Form } from '@/components/Form';
 
 import { useSearch } from './hooks/useSearch';
 
-export const Search = () => {
+export const MediaSearchInput = () => {
   const { register, redirectSearch } = useSearch();
 
   return (
