@@ -6,10 +6,10 @@ export const fetchTopRated = async ({ mediaType }: MediaType) => {
   const dataTrendings = await fetchTrendings({ mediaType });
 
   const mediaRandom = (await fetchContentInfo({
-    mediaType,
     id: dataTrendings.results[
       Math.floor(Math.random() * dataTrendings.results.length)
-    ].id
+    ].id,
+    mediaType
   })) as ContentInfo;
 
   return mediaRandom;

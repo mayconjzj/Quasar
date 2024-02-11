@@ -3,7 +3,7 @@ import { api } from '@/services/api';
 import { MediaType, ContentInfo } from '@/models';
 
 type FetchContentInfo = {
-  id: number;
+  id?: number;
 } & MediaType;
 
 export const fetchContentInfo = async ({ mediaType, id }: FetchContentInfo) => {
