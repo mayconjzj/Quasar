@@ -2,7 +2,7 @@ import '@/styles/globals.css';
 
 import { ContextProvider } from '@/contexts/context-provider';
 
-import { Header } from '@/components/templates/Header';
+import { Header } from '@/components/Header';
 
 import { cn } from '@/lib/utils';
 
