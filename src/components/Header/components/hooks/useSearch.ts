@@ -17,7 +17,7 @@ export const useSearch = () => {
 
   const redirectSearch = handleSubmit(() => {
     const { search } = getValues();
-    push(`/search?query=${search}`);
+    push(`/search?query=${search}&page=1`);
     setValue('search', '');
   });
 
