@@ -8,20 +8,7 @@ const nextConfig = {
         port: '',
         pathname: '/t/p/**'
       }
-    ],
-    deviceSizes: [320, 640, 768, 1024, 1280, 1536],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    loader: 'default',
-    disableStaticImages: false
-  },
-  redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/movies',
-        permanent: true
-      }
-    ];
+    ]
   }
 };
 

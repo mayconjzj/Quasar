@@ -14,12 +14,13 @@ export const Search = () => {
   const { push } = useRouter();
 
   const redirectSearch = handleSubmit(() => {
-    push(`/search?query=${getValues('search')}`);
+    const query = getValues('search');
+    push(`/search?query=${query}`);
   });
 
   return (
     <Form.Root
-      onSubmit={() => redirectSearch()}
+      onSubmit={redirectSearch}
       className="hidden md:flex gap-x-1 items-center border-white border-[0.5px] rounded-full px-2"
     >
       <Form.Input
