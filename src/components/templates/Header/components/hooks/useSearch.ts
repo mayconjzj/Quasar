@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -12,5 +13,12 @@ export const useSearch = () => {
     resolver: zodResolver(schema)
   });
 
-  return { register, handleSubmit, getValues };
+  const { push } = useRouter();
+
+  const redirectSearch = handleSubmit(() => {
+    const { search } = getValues();
+    push(`/search/${search}`);
+  });
+
+  return { register, redirectSearch };
 };
