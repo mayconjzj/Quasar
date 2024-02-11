@@ -8,9 +8,9 @@ export const useSearch = () => {
     search: z.string().min(1)
   });
 
-  const { register, handleSubmit, setValue, getValues } = useForm({
+  const { register, handleSubmit, getValues } = useForm({
     resolver: zodResolver(schema)
   });
 
-  return { register, handleSubmit, setValue, getValues };
+  return { register, handleSubmit, getValues };
 };

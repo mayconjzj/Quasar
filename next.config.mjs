@@ -9,6 +9,15 @@ const nextConfig = {
         pathname: '/t/p/**'
       }
     ]
+  },
+  redirects: async () => {
+    return [
+      {
+        source: '/',
+        destination: '/movies',
+        permanent: true
+      }
+    ];
   }
 };
 

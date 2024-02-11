@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 
@@ -13,14 +13,11 @@ export const Search = () => {
   const { register, handleSubmit, getValues } = useSearch();
   const { push } = useRouter();
 
-  const redirectSearch = handleSubmit(() => {
-    const query = getValues('search');
-    push(`/search?query=${query}`);
-  });
-
   return (
     <Form.Root
-      onSubmit={redirectSearch}
+      onSubmit={handleSubmit(() =>
+        push(`/search?query=${getValues('search')}`)
+      )}
       className="hidden md:flex gap-x-1 items-center border-white border-[0.5px] rounded-full px-2"
     >
       <Form.Input
