@@ -16,8 +16,8 @@ export default async function Search({ searchParams }: SearchProps) {
 
   return (
     <S.Container>
-      <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
       <SearchResults.Root>
+        <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
         <span className="font-bold">
           {dataSearch.total_results} resultados para títulos
         </span>

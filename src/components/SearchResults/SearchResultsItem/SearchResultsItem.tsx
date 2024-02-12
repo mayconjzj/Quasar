@@ -15,10 +15,7 @@ export const SearchResultsItem = ({
   className?: string;
 }) => {
   return (
-    <div
-      key={result.id}
-      className={cn('flex flex-wrap gap-x-4 gap-y-2', rest.className)}
-    >
+    <div key={result.id} className={cn('flex gap-x-4 gap-y-2', rest.className)}>
       {result.poster_path && (
         <Image
           className="cursor-pointer duration-200 min-w-[150px] rounded-xl"
@@ -33,7 +30,7 @@ export const SearchResultsItem = ({
       {!result.poster_path && (
         <Skeleton className="min-w-[150px] min-h-[225px]" />
       )}
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-1 relative w-full">
         <Link href={`/${result.media_type}/${result.id}`}>
           <h2 className="font-bold text-xl">{result.title || result.name}</h2>
         </Link>
@@ -51,12 +48,14 @@ export const SearchResultsItem = ({
             </span>
           </div>
         )}
+        {result.overview && (
+          <div>
+            <div className="line-clamp-2 bottom-0 absolute font-semibold">
+              {result.overview}
+            </div>
+          </div>
+        )}
       </div>
-      {result.overview && (
-        <div>
-          <div className="line-clamp-4 font-[#ccc]">{result.overview}</div>
-        </div>
-      )}
     </div>
   );
 };
