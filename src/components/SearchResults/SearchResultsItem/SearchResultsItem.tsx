@@ -51,9 +51,11 @@ export const SearchResultsItem = ({
           </div>
         )}
       </div>
-      <div>
-        <div className="line-clamp-4 font-[#ccc]">{result.overview}</div>
-      </div>
+      {result.overview && (
+        <div>
+          <div className="line-clamp-4 font-[#ccc]">{result.overview}</div>
+        </div>
+      )}
     </div>
   );
 };
