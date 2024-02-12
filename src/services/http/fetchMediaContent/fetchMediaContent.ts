@@ -12,7 +12,7 @@ export const fetchMediaContent = async ({
 }: FetchMediaContent) => {
   const reels = (await api.get({
     endpoint: `/discover/${mediaType ?? 'movie'}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&with_genres=${withGenres}&language=pt-BR`,
-    cache: 'no-store'
+    cache: 'no-cache'
   })) as mediaContent;
 
   return reels;

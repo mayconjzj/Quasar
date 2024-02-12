@@ -20,7 +20,7 @@ export const fetchCollection = async ({ mediaType }: MediaType) => {
   const catalogList = [
     {
       id: 1,
-      name: 'Recomendados para você',
+      name: 'Destaques da semana',
       media: dataTrendings.results.map((contentInfo) => contentInfo)
     },
     ...reelsAndCategories

@@ -9,7 +9,7 @@ type FetchContentInfo = {
 export const fetchContentInfo = async ({ mediaType, id }: FetchContentInfo) => {
   const contentInfo = (await api.get({
     endpoint: `/${mediaType ?? 'movie'}/${id}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=pt-BR`,
-    cache: 'no-store'
+    cache: 'no-cache'
   })) as ContentInfo;
 
   return contentInfo;
