@@ -68,24 +68,24 @@ export default async function Discover({
         </S.Details>
       </S.TopRated>
       <S.Collection>
-        {dataCollection.map((category) => (
+        {dataCollection.map((genre) => (
           <MediaGallery.Root key={category.id}>
             <MediaGallery.Title>{category.name}</MediaGallery.Title>
             <MediaGallery.Content>
-              {category.media.map((content) => (
+              {genre.media.map((media) => (
                 <>
-                  {content.poster_path && (
+                  {media.poster_path && (
                     <Image
                       className="scale-90 hover:scale-100 cursor-pointer duration-200 min-w-[150px]"
-                      src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w200${content.poster_path}`}
-                      alt={`${content.title || content.name}`}
+                      src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w200${media.poster_path}`}
+                      alt={`${media.title || media.name}`}
                       width={150}
                       height={225}
                       unoptimized
                       loading="lazy"
                     />
                   )}
-                  {!content.poster_path && (
+                  {!media.poster_path && (
                     <Skeleton className="min-w-[150px] h-[225px] scale-90" />
                   )}
                 </>

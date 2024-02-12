@@ -1,14 +1,14 @@
 import { MediaType } from '@/models';
 
-import { fetchCategories, fetchMediaContent, fetchTrendings } from '..';
+import { fetchGenre, fetchDiscover, fetchTrendings } from '..';
 
 export const fetchCollection = async ({ mediaType }: MediaType) => {
   const dataTrendings = await fetchTrendings({ mediaType });
-  const dataCategories = await fetchCategories({ mediaType });
+  const dataCategories = await fetchGenre({ mediaType });
 
   const reelsAndCategories = await Promise.all(
     dataCategories.genres.map(async (category) => {
-      const mediaContent = await fetchMediaContent({
+      const mediaContent = await fetchDiscover({
         mediaType: mediaType,
         withGenres: category.id
       });
