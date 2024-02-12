@@ -38,7 +38,7 @@ export default async function Discover({
             <S.Item>
               {dataTopRated?.vote_average && (
                 <>
-                  {dataTopRated.vote_average}{' '}
+                  {Math.round(dataTopRated.vote_average * 10) / 10}{' '}
                   <span className="text-[#46d369]">pontos</span>
                 </>
               )}
