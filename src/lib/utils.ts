@@ -31,5 +31,5 @@ export const formatDate = (dateString: string) => {
   return formattedDate;
 };
 
-export const getPageLink = (query: string, page: number) =>
-  `/search?query=${query}&page=${page}`;
+export const getPageLink = (endpoint: string, page: number) =>
+  `${endpoint}&page=${page}`;

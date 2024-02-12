@@ -16,8 +16,8 @@ export default async function Search({ searchParams }: SearchProps) {
 
   return (
     <S.Container>
+      <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
       <SearchResults.Root>
-        <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
         <span className="font-bold">
           {dataSearch.total_results} resultados para títulos
         </span>
@@ -30,7 +30,7 @@ export default async function Search({ searchParams }: SearchProps) {
             <PaginationLinks
               currentPage={dataSearch.page}
               totalPages={dataSearch.total_pages}
-              query={searchParams.query}
+              endpoint={`/search?query=${searchParams.query}`}
             />
           </Pagination.Content>
         </Pagination.Root>

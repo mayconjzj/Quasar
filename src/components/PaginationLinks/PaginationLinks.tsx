@@ -7,13 +7,13 @@ import { getPageLink } from '@/lib/utils';
 type PaginationLinksProps = {
   currentPage: number;
   totalPages: number;
-  query: string;
+  endpoint: string;
 };
 
 export const PaginationLinks: React.FC<PaginationLinksProps> = ({
   currentPage,
   totalPages,
-  query
+  endpoint
 }) => {
   const links = [];
 
@@ -21,7 +21,7 @@ export const PaginationLinks: React.FC<PaginationLinksProps> = ({
     links.push(
       <Pagination.Item key={pageNumber}>
         <Pagination.Link
-          href={getPageLink(query, pageNumber)}
+          href={getPageLink(endpoint, pageNumber)}
           isActive={currentPage === pageNumber}
         >
           {text}
@@ -33,7 +33,7 @@ export const PaginationLinks: React.FC<PaginationLinksProps> = ({
   if (currentPage > 1) {
     links.push(
       <Pagination.Item key="prev">
-        <Pagination.Previous href={getPageLink(query, currentPage - 1)} />
+        <Pagination.Previous href={getPageLink(endpoint, currentPage - 1)} />
       </Pagination.Item>
     );
   }
@@ -65,7 +65,7 @@ export const PaginationLinks: React.FC<PaginationLinksProps> = ({
   if (currentPage < totalPages) {
     links.push(
       <Pagination.Item key="next">
-        <Pagination.Next href={getPageLink(query, currentPage + 1)} />
+        <Pagination.Next href={getPageLink(endpoint, currentPage + 1)} />
       </Pagination.Item>
     );
   }
