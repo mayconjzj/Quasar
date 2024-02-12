@@ -9,7 +9,7 @@ export default function Loading() {
   return (
     <S.Container>
       <S.TopRated>
-        <Skeleton className="w-full h-[85vh]" />
+        <Skeleton className="w-full h-full" />
       </S.TopRated>
       <S.Collection>
         <MediaGallery.Root>
