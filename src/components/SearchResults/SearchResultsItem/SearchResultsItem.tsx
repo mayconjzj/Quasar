@@ -13,41 +13,46 @@ export const SearchResultsItem = ({
   result: mediaContent['results'][0];
 }) => {
   return (
-    <div
-      className="flex gap-4 bg-[#111] border-none overflow-hidden rounded-lg max-h-[150px]"
-      key={result.id}
-    >
+    <div key={result.id} className="flex flex-wrap gap-x-4 gap-y-2">
       {result.poster_path && (
         <Image
-          className="cursor-pointer duration-200 min-w-[100px]"
+          className="cursor-pointer duration-200 min-w-[150px] rounded-xl"
           src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w200${result.poster_path}`}
           alt={`${result.title || result.name}`}
-          width={100}
-          height={150}
+          width={150}
+          height={225}
           unoptimized
           loading="lazy"
         />
       )}
-
-      {!result.poster_path && <Skeleton className="min-w-[100px] h-[150px]" />}
-
-      <div className="my-4 flex flex-col justify-between w-full overflow-hidden">
-        <div>
-          <Link href={`/${result.media_type}/${result.id}`}>
-            <h2 className="font-bold">{result.title || result.name}</h2>
-          </Link>
-
-          {result.release_date ||
-            (result.first_air_date && (
-              <span className="text-gray-400">
-                {formatDate(`${result.release_date || result.first_air_date}`)}
-              </span>
-            ))}
-        </div>
-
-        <div className="text-sm line-clamp-2">
-          <p>{result.overview}</p>
-        </div>
+      {!result.poster_path && (
+        <Skeleton className="min-w-[150px] min-h-[225px]" />
+      )}
+      <div className="flex flex-col gap-1">
+        <Link href={`/${result.media_type}/${result.id}`}>
+          <h2 className="font-bold text-xl text-[#ccc]">
+            {result.title || result.name}
+          </h2>
+        </Link>
+        {result.release_date ||
+          (result.first_air_date && (
+            <span className="text-[#ccc] font-light">
+              {formatDate(`${result.release_date || result.first_air_date}`)}
+            </span>
+          ))}
+        {result.vote_average && (
+          <div className="border-[1px] border-[#ccc] w-16 h-16 rounded-xl flex flex-col items-center justify-center">
+            <span className="text-[#ccc] font-semibold text-[12px]">
+              Pontos
+            </span>
+            <span className="text-[#ccc] font-bold text-xl">
+              {Math.round(result.vote_average * 10) / 10}
+            </span>
+          </div>
+        )}
+      </div>
+      <div>
+        <div className="line-clamp-4 font-[#ccc]">{result.overview}</div>
       </div>
     </div>
   );

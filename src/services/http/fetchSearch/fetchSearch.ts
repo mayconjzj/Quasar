@@ -13,5 +13,12 @@ export const fetchSearch = async ({ query, page = '1' }: FetchSearch) => {
     cache: 'no-store'
   })) as mediaContent;
 
-  return response;
+  const sorted = response.results.sort((a, b) => {
+    if (a.popularity && b.popularity) {
+      return b.popularity - a.popularity;
+    }
+    return 0;
+  });
+
+  return { ...response, results: sorted };
 };

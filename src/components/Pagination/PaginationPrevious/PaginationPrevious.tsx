@@ -15,7 +15,7 @@ export const PaginationPrevious = ({
     {...props}
   >
     <ChevronLeftIcon className="h-4 w-4" />
-    <span>Previous</span>
+    <span>Anterior</span>
   </PaginationLink>
 );
 PaginationPrevious.displayName = 'PaginationPrevious';
