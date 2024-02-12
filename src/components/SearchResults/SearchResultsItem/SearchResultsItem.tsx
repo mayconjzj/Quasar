@@ -5,12 +5,12 @@ import { Skeleton } from '@/components/Skeleton';
 
 import { formatDate } from '@/lib/utils';
 
-import { mediaContent } from '@/models';
+import { MediaResults } from '@/models';
 
 export const SearchResultsItem = ({
   result
 }: {
-  result: mediaContent['results'][0];
+  result: MediaResults['results'][0];
 }) => {
   return (
     <div key={result.id} className="flex flex-wrap gap-x-4 gap-y-2">
