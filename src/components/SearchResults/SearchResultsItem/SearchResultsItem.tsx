@@ -30,22 +30,18 @@ export const SearchResultsItem = ({
       )}
       <div className="flex flex-col gap-1">
         <Link href={`/${result.media_type}/${result.id}`}>
-          <h2 className="font-bold text-xl text-[#ccc]">
-            {result.title || result.name}
-          </h2>
+          <h2 className="font-bold text-xl">{result.title || result.name}</h2>
         </Link>
         {result.release_date ||
           (result.first_air_date && (
-            <span className="text-[#ccc] font-light">
+            <span className="font-light">
               {formatDate(`${result.release_date || result.first_air_date}`)}
             </span>
           ))}
         {result.vote_average && (
-          <div className="border-[1px] border-[#ccc] w-16 h-16 rounded-xl flex flex-col items-center justify-center">
-            <span className="text-[#ccc] font-semibold text-[12px]">
-              Pontos
-            </span>
-            <span className="text-[#ccc] font-bold text-xl">
+          <div className="border-[1px] border-foreground w-16 h-16 rounded-xl flex flex-col items-center justify-center">
+            <span className="font-semibold text-[12px]">Pontos</span>
+            <span className="font-bold text-xl">
               {Math.round(result.vote_average * 10) / 10}
             </span>
           </div>

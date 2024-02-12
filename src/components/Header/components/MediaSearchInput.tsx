@@ -13,7 +13,7 @@ export const MediaSearchInput = () => {
   return (
     <Form.Root
       onSubmit={redirectSearch}
-      className="hidden md:flex gap-x-1 items-center border-white border-[0.5px] rounded-full px-2"
+      className="hidden md:flex gap-x-1 items-center border-[0.5px] rounded-md px-2 border-foreground"
     >
       <Form.Input
         type="text"
@@ -23,10 +23,10 @@ export const MediaSearchInput = () => {
         {...register('search')}
       />
       <Button
-        className="w-9 h-9 p-0 bg-transparent hover:bg-transparent text-white hover:text-white"
+        className="w-9 h-9 p-0 shadow-none bg-transparent hover:bg-transparent"
         type="submit"
       >
-        <MagnifyingGlassIcon className="w-[25px] h-[25px]" />
+        <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
       </Button>
     </Form.Root>
   );

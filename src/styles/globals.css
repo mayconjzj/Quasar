@@ -4,13 +4,13 @@
  
 @layer base {
   :root {
-    --background: 0 1% 1%;
-    --foreground: 224 71.4% 4.1%;
-
-    --card: 0 0% 100%;
+    --background: 0, 0%, 93%;
+    --foreground: 0 1% 1%;
+ 
+    --card: 0, 0%, 100%;
     --card-foreground: 224 71.4% 4.1%;
  
-    --popover: 0 0% 100%;
+    --popover: 0, 0%, 100%;
     --popover-foreground: 224 71.4% 4.1%;
  
     --primary: 220.9 39.3% 11%;
@@ -34,49 +34,47 @@
  
     --radius: 0.5rem;
 
-    --font-inter: 'Inter'
-  }
- 
+    --font-montserrat: 'Montserrat';
+  } 
   .dark {
     --background: 0 1% 1%;
-    --foreground: 210 20% 98%;
+    --foreground: 0, 0%, 93%;
  
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
+    --card: 0, 1%, 6%;
+    --card-foreground: 0, 0%, 88%;
  
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
+    --popover: 0, 1%, 11%;
+    --popover-foreground: 0, 0%, 78%;
  
-    --primary: 210 20% 98%;
-    --primary-foreground: 220.9 39.3% 11%;
+    --primary: 0, 1%, 21%;
+    --primary-foreground: 0, 0%, 83%;
  
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
+    --secondary: 0, 1%, 31%;
+    --secondary-foreground: 0, 0%, 73%;
  
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
+    --muted: 0, 1%, -4%;
+    --muted-foreground: 0, 0%, 98%;
  
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
+    --accent: 0, 1%, 6%;
+    --accent-foreground: 0, 0%, 88%;
  
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
+    --destructive: 0, 1%, 26%;
+    --destructive-foreground: 0, 0%, 78%;
  
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 216 12.2% 83.9%;
+    --border: 0, 1%, 6%;
+    --input: 0, 0%, 88%;
+    --ring: 0, 0%, 98%;
 
-    --font-inter: 'Montserrat'
+    --font-montserrat: 'Montserrat';
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-    font-family: 'Montserrat';
+    @apply bg-background text-foreground font-montserrat;
   }
 
   *::-webkit-scrollbar {
