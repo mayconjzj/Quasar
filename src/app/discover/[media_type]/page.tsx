@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Suspense } from 'react';
 
 import { fetchCollection, fetchTopRated } from '@/services/http';
 
@@ -23,86 +22,77 @@ export default async function Discover({
   return (
     <S.Container>
       <S.TopRated>
-        <Suspense fallback={<Skeleton className="w-full h-[85vh}" />}>
-          <Image
-            className="object-cover"
-            src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w1280${dataTopRated?.backdrop_path}`}
-            alt="dataTopRated Image"
-            fill
-            unoptimized
-            priority
-          />
-          <S.GradientBottom />
-          <S.GradientLeft />
-          <S.Details>
-            <S.Title>{dataTopRated?.title || dataTopRated?.name}</S.Title>
-            <S.MediaDetails>
-              <S.Item>
-                {dataTopRated?.vote_average && (
-                  <>
-                    {dataTopRated.vote_average}{' '}
-                    <span className="text-[#46d369]">pontos</span>
-                  </>
-                )}
-              </S.Item>
-              <S.Item>
-                {dataTopRated?.release_date &&
-                  firstDateYear(dataTopRated.release_date)}
-                {dataTopRated?.first_air_date &&
-                  firstDateYear(dataTopRated.first_air_date)}
-              </S.Item>
-              <S.Item>
-                {dataTopRated.runtime && `${dataTopRated.runtime} minutos`}
-                {dataTopRated.number_of_seasons &&
-                  `${dataTopRated.number_of_seasons} temporadas`}
-              </S.Item>
-            </S.MediaDetails>
-            <S.Overview>{dataTopRated.overview}</S.Overview>
-            <S.ContentButton>
-              <Button>Detalhes</Button>
-            </S.ContentButton>
+        <Image
+          className="object-cover"
+          src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w1280${dataTopRated?.backdrop_path}`}
+          alt="dataTopRated Image"
+          fill
+          unoptimized
+          priority
+        />
+        <S.GradientBottom />
+        <S.GradientLeft />
+        <S.Details>
+          <S.Title>{dataTopRated?.title || dataTopRated?.name}</S.Title>
+          <S.MediaDetails>
             <S.Item>
-              <span className="font-bold">Gêneros: </span>
-              <span className="text-[#aaa]">
-                {dataTopRated.genres?.map((genre) => genre.name).join(', ')}{' '}
-              </span>
+              {dataTopRated?.vote_average && (
+                <>
+                  {dataTopRated.vote_average}{' '}
+                  <span className="text-[#46d369]">pontos</span>
+                </>
+              )}
             </S.Item>
-          </S.Details>
-        </Suspense>
+            <S.Item>
+              {dataTopRated?.release_date &&
+                firstDateYear(dataTopRated.release_date)}
+              {dataTopRated?.first_air_date &&
+                firstDateYear(dataTopRated.first_air_date)}
+            </S.Item>
+            <S.Item>
+              {dataTopRated.runtime && `${dataTopRated.runtime} minutos`}
+              {dataTopRated.number_of_seasons &&
+                `${dataTopRated.number_of_seasons} temporadas`}
+            </S.Item>
+          </S.MediaDetails>
+          <S.Overview>{dataTopRated.overview}</S.Overview>
+          <S.ContentButton>
+            <Button>Detalhes</Button>
+          </S.ContentButton>
+          <S.Item>
+            <span className="font-bold">Gêneros: </span>
+            <span className="text-[#aaa]">
+              {dataTopRated.genres?.map((genre) => genre.name).join(', ')}{' '}
+            </span>
+          </S.Item>
+        </S.Details>
       </S.TopRated>
       <S.Collection>
-        <Suspense fallback={<Skeleton className="w-[200px] h-10" />}>
-          {dataCollection.map((category) => (
-            <MediaGallery.Root key={category.id}>
-              <MediaGallery.Title>{category.name}</MediaGallery.Title>
-              <MediaGallery.Content>
-                {category.media.map((content) => (
-                  <Suspense
-                    key={content.id}
-                    fallback={
-                      <Skeleton className="min-w-[150px] h-[225px] scale-90" />
-                    }
-                  >
-                    {content.poster_path && (
-                      <Image
-                        className="scale-90 hover:scale-100 cursor-pointer duration-200 min-w-[150px]"
-                        src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w200${content.poster_path}`}
-                        alt={`${content.title || content.name}`}
-                        width={150}
-                        height={225}
-                        unoptimized
-                        loading="lazy"
-                      />
-                    )}
-                    {!content.poster_path && (
-                      <Skeleton className="min-w-[150px] h-[225px] scale-90" />
-                    )}
-                  </Suspense>
-                ))}
-              </MediaGallery.Content>
-            </MediaGallery.Root>
-          ))}
-        </Suspense>
+        {dataCollection.map((category) => (
+          <MediaGallery.Root key={category.id}>
+            <MediaGallery.Title>{category.name}</MediaGallery.Title>
+            <MediaGallery.Content>
+              {category.media.map((content) => (
+                <>
+                  {content.poster_path && (
+                    <Image
+                      className="scale-90 hover:scale-100 cursor-pointer duration-200 min-w-[150px]"
+                      src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w200${content.poster_path}`}
+                      alt={`${content.title || content.name}`}
+                      width={150}
+                      height={225}
+                      unoptimized
+                      loading="lazy"
+                    />
+                  )}
+                  {!content.poster_path && (
+                    <Skeleton className="min-w-[150px] h-[225px] scale-90" />
+                  )}
+                </>
+              ))}
+            </MediaGallery.Content>
+          </MediaGallery.Root>
+        ))}
       </S.Collection>
     </S.Container>
   );
