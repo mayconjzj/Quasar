@@ -69,8 +69,8 @@ export default async function Discover({
       </S.TopRated>
       <S.Collection>
         {dataCollection.map((genre) => (
-          <MediaGallery.Root key={category.id}>
-            <MediaGallery.Title>{category.name}</MediaGallery.Title>
+          <MediaGallery.Root key={genre.id}>
+            <MediaGallery.Title>{genre.name}</MediaGallery.Title>
             <MediaGallery.Content>
               {genre.media.map((media) => (
                 <>

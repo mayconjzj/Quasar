@@ -1,4 +1,4 @@
-export type ContentInfo = {
+export type MediaInfo = {
   title?: string;
   name?: string;
   original_name?: string;

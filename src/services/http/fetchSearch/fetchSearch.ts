@@ -1,6 +1,6 @@
 import { api } from '@/services/api';
 
-import { mediaContent } from '@/models';
+import { MediaResults } from '@/models';
 
 type FetchSearch = {
   query: string;
@@ -11,7 +11,7 @@ export const fetchSearch = async ({ query, page = '1' }: FetchSearch) => {
   const response = (await api.get({
     endpoint: `/search/multi?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&query=${query}&page=${page}&language=pt-BR`,
     cache: 'no-store'
-  })) as mediaContent;
+  })) as MediaResults;
 
   const sorted = response.results.sort((a, b) => {
     if (a.popularity && b.popularity) {

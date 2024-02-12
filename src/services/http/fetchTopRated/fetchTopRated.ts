@@ -1,16 +1,16 @@
-import { ContentInfo, MediaType } from '@/models';
+import { MediaType } from '@/models';
 
-import { fetchContentInfo, fetchTrendings } from '..';
+import { fetchMediaInfo, fetchTrendings } from '..';
 
 export const fetchTopRated = async ({ mediaType }: MediaType) => {
   const dataTrendings = await fetchTrendings({ mediaType });
 
-  const mediaRandom = (await fetchContentInfo({
+  const mediaRandom = await fetchMediaInfo({
     id: dataTrendings.results[
       Math.floor(Math.random() * dataTrendings.results.length)
     ].id as number,
     mediaType
-  })) as ContentInfo;
+  });
 
   return mediaRandom;
 };
