@@ -1,9 +1,9 @@
-import { ContentInfo } from '..';
+import { MediaInfo } from '..';
 
 export type Collection = {
   id: number;
   name: string;
-  media: ContentInfo[];
+  media: MediaInfo[];
 };
 
 export type Collections = Collection[];
