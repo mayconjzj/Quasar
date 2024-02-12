@@ -10,7 +10,7 @@ export const SearchResultsRoot = ({
 }: SearchResultsRootProps) => {
   return (
     <section
-      className={cn('w-full gap-[32px] flex flex-col', rest.className)}
+      className={cn('w-full gap-4 flex flex-col', rest.className)}
       {...rest}
     >
       {children}

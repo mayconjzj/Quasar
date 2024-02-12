@@ -16,27 +16,25 @@ export default async function Search({ searchParams }: SearchProps) {
 
   return (
     <S.Container>
-      <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
-      <span className="font-bold">
-        {dataSearch.total_results} resultados para títulos
-      </span>
       <SearchResults.Root>
+        <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
+        <span className="font-bold">
+          {dataSearch.total_results} resultados para títulos
+        </span>
         {dataSearch.results.length === 0 && <SearchResults.NoResult />}
-
         {dataSearch.results.map((result) => (
           <SearchResults.Item key={result.id} result={result} />
         ))}
+        <Pagination.Root>
+          <Pagination.Content>
+            <PaginationLinks
+              currentPage={dataSearch.page}
+              totalPages={dataSearch.total_pages}
+              query={searchParams.query}
+            />
+          </Pagination.Content>
+        </Pagination.Root>
       </SearchResults.Root>
-
-      <Pagination.Root>
-        <Pagination.Content>
-          <PaginationLinks
-            currentPage={dataSearch.page}
-            totalPages={dataSearch.total_pages}
-            query={searchParams.query}
-          />
-        </Pagination.Content>
-      </Pagination.Root>
     </S.Container>
   );
 }

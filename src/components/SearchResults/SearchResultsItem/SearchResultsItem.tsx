@@ -3,17 +3,22 @@ import Link from 'next/link';
 
 import { Skeleton } from '@/components/Skeleton';
 
-import { formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 
 import { MediaResults } from '@/models';
 
 export const SearchResultsItem = ({
-  result
+  result,
+  ...rest
 }: {
   result: MediaResults['results'][0];
+  className?: string;
 }) => {
   return (
-    <div key={result.id} className="flex flex-wrap gap-x-4 gap-y-2">
+    <div
+      key={result.id}
+      className={cn('flex flex-wrap gap-x-4 gap-y-2', rest.className)}
+    >
       {result.poster_path && (
         <Image
           className="cursor-pointer duration-200 min-w-[150px] rounded-xl"
