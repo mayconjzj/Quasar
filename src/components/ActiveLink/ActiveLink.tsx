@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib';
 
 type ActiveLinkProps = {
   href: string;
@@ -17,7 +17,7 @@ export const ActiveLink = ({ children, ...rest }: ActiveLinkProps) => {
 
   return (
     <Link
-      className={twMerge(
+      className={cn(
         'hover:text-blue-500 duration-200 cursor-pointer',
         isActive && 'text-blue-500',
         rest.className

@@ -7,9 +7,9 @@ import { MediaPoster } from '@/components/MediaPoster';
 import { Pagination } from '@/components/Pagination';
 import { Skeleton } from '@/components/Skeleton';
 
-import { formatDate } from '@/lib/utils';
-
 import { SearchProps } from '@/models/Search';
+
+import { formatDate } from '@/lib';
 
 import * as S from './styles';
 

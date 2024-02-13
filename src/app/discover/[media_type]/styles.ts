@@ -13,3 +13,5 @@ export const Overview = tw.p`max-w-[600px] line-clamp-4`;
 export const ContentButton = tw.div`flex gap-2`;
 
 export const Collection = tw.section`px-2 md:px-[30px]`;
+export const Content = tw.div`w-full my-[30px]`;
+export const SubTitle = tw.h2`font-bold text-2xl`;

@@ -1,6 +1,6 @@
 import { ButtonProps, buttonVariants } from '@/components/Button';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib';
 
 type PaginationLinkProps = {
   isActive?: boolean;

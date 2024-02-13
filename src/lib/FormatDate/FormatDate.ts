@@ -1,14 +1,3 @@
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-
-export const firstDateYear = (date: string) => {
-  return new Date(date).getFullYear();
-};
-
 export const formatDate = (dateString: string) => {
   const months = [
     'janeiro',
@@ -30,6 +19,3 @@ export const formatDate = (dateString: string) => {
 
   return formattedDate;
 };
-
-export const getPageLink = (endpoint: string, page: number) =>
-  `${endpoint}&page=${page}`;

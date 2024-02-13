@@ -1,10 +1,10 @@
 import '@/styles/globals.css';
 
-import { ContextProvider } from '@/contexts/context-provider';
+import { Providers } from '@/contexts';
 
 import { Header } from '@/components/Header';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/TailwindMerge/TailwindMerge';
 
 export default function RootLayout({
   children
@@ -14,10 +14,10 @@ export default function RootLayout({
   return (
     <html lang="pt-br" suppressHydrationWarning={true}>
       <body className={cn('bg-background text-foreground antialiased')}>
-        <ContextProvider attribute="class" defaultTheme="dark">
+        <Providers attribute="class" defaultTheme="dark">
           <Header />
           {children}
-        </ContextProvider>
+        </Providers>
       </body>
     </html>
   );

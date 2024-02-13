@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { fetchCollection, fetchTopRated } from '@/services/http';
 
 import { Button } from '@/components/Button';
+import { List } from '@/components/List';
 import { MediaBackdrop } from '@/components/MediaBackdrop';
-import { MediaGallery } from '@/components/MediaGallery';
 import { MediaPoster } from '@/components/MediaPoster';
 import { Skeleton } from '@/components/Skeleton';
 
-import { firstDateYear } from '@/lib/utils';
+import { firstDateYear } from '@/lib';
 
 import * as S from './styles';
 export default async function Discover({
@@ -32,7 +32,7 @@ export default async function Discover({
           <S.Title>{dataTopRated?.title || dataTopRated?.name}</S.Title>
           <S.MediaDetails>
             <S.Item>
-              {dataTopRated?.vote_average && (
+              {dataTopRated.vote_average && (
                 <>
                   {Math.round(dataTopRated.vote_average * 10) / 10}{' '}
                   <span className="text-[#46d369]">pontos</span>
@@ -40,9 +40,9 @@ export default async function Discover({
               )}
             </S.Item>
             <S.Item>
-              {dataTopRated?.release_date &&
+              {dataTopRated.release_date &&
                 firstDateYear(dataTopRated.release_date)}
-              {dataTopRated?.first_air_date &&
+              {dataTopRated.first_air_date &&
                 firstDateYear(dataTopRated.first_air_date)}
             </S.Item>
             <S.Item>
@@ -65,23 +65,21 @@ export default async function Discover({
       </S.TopRated>
       <S.Collection>
         {dataCollection.map((genre) => (
-          <MediaGallery.Root key={genre.id}>
-            <MediaGallery.Title>{genre.name}</MediaGallery.Title>
-            <MediaGallery.Content>
+          <S.Content key={genre.id}>
+            <S.SubTitle>{genre.name}</S.SubTitle>
+            <List.Root className="overflow-x-auto flex">
               {genre.media.map((media) => (
-                <Link
-                  className="min-w-[150px] h-[225px]"
-                  href={`/${mediaType}/${media.id}`}
-                  key={media.id}
-                >
-                  {media.poster_path && <MediaPoster media={media} />}
-                  {!media.poster_path && (
-                    <Skeleton className="min-w-[150px] h-[225px] scale-90" />
-                  )}
-                </Link>
+                <List.Item key={media.id}>
+                  <Link href={`/${mediaType}/${media.id}`}>
+                    {media.poster_path && <MediaPoster media={media} />}
+                    {!media.poster_path && (
+                      <Skeleton className="min-w-[150px] h-[225px] scale-90" />
+                    )}
+                  </Link>
+                </List.Item>
               ))}
-            </MediaGallery.Content>
-          </MediaGallery.Root>
+            </List.Root>
+          </S.Content>
         ))}
       </S.Collection>
     </S.Container>

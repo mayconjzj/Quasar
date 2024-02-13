@@ -13,7 +13,11 @@ export const fetchCollection = async ({ mediaType }: { mediaType: string }) => {
         withGenres: category.id
       });
 
-      return { ...category, media: mediaContent.results };
+      return {
+        id: category.id,
+        name: category.name,
+        media: mediaContent.results
+      };
     })
   );
 

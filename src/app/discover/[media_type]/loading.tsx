@@ -1,4 +1,4 @@
-import { MediaGallery } from '@/components/MediaGallery';
+import { List } from '@/components/List';
 import { Skeleton } from '@/components/Skeleton';
 
 import * as S from './styles';
@@ -12,21 +12,20 @@ export default function Loading() {
         <Skeleton className="w-full h-full" />
       </S.TopRated>
       <S.Collection>
-        <MediaGallery.Root>
+        <S.Content>
           {data.map((i) => (
             <>
               <Skeleton key={i} className="w-[225px] h-8" />
-              <MediaGallery.Content>
+              <List.Root className="flex overflow-auto">
                 {data.map((i) => (
-                  <Skeleton
-                    key={i}
-                    className="min-w-[150px] h-[225px] scale-90"
-                  />
+                  <List.Item key={i} className="min-w-[150px] h-[225px]">
+                    <Skeleton className="min-w-[150px] h-[225px] scale-90" />
+                  </List.Item>
                 ))}
-              </MediaGallery.Content>
+              </List.Root>
             </>
           ))}
-        </MediaGallery.Root>
+        </S.Content>
       </S.Collection>
     </S.Container>
   );
