@@ -17,8 +17,10 @@ export default async function Discover({
   params: { media_type: string };
 }) {
   const mediaType = params.media_type === 'series' ? 'tv' : 'movie';
-  const dataTopRated = await fetchTopRated({ mediaType });
-  const dataCollection = await fetchCollection({ mediaType });
+  const [dataTopRated, dataCollection] = await Promise.all([
+    fetchTopRated({ mediaType }),
+    fetchCollection({ mediaType })
+  ]);
 
   return (
     <S.Container>

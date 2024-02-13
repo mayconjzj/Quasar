@@ -1,8 +1,10 @@
 import { fetchGenre, fetchDiscover, fetchTrendings } from '..';
 
 export const fetchCollection = async ({ mediaType }: { mediaType: string }) => {
-  const dataTrendings = await fetchTrendings({ mediaType });
-  const dataCategories = await fetchGenre({ mediaType });
+  const [dataTrendings, dataCategories] = await Promise.all([
+    fetchTrendings({ mediaType }),
+    fetchGenre({ mediaType })
+  ]);
 
   const reelsAndCategories = await Promise.all(
     dataCategories.genres.map(async (category) => {
