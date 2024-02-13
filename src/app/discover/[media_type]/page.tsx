@@ -1,9 +1,12 @@
 import { fetchCollection, fetchTopRated } from '@/services/http';
 
+import { Button } from '@/components/Button';
+import { MediaBackdrop } from '@/components/MediaBackdrop';
 import { MediaGallery } from '@/components/MediaGallery';
 import { MediaPoster } from '@/components/MediaPoster';
 import { Skeleton } from '@/components/Skeleton';
-import { TopRated } from '@/components/TopRated';
+
+import { firstDateYear } from '@/lib/utils';
 
 import * as S from './styles';
 export default async function Discover({
@@ -17,7 +20,45 @@ export default async function Discover({
 
   return (
     <S.Container>
-      <TopRated dataTopRated={dataTopRated} />
+      <S.TopRated>
+        <MediaBackdrop dataTopRated={dataTopRated} />
+        <S.GradientBottom />
+        <S.GradientLeft />
+        <S.Details>
+          <S.Title>{dataTopRated?.title || dataTopRated?.name}</S.Title>
+          <S.MediaDetails>
+            <S.Item>
+              {dataTopRated?.vote_average && (
+                <>
+                  {Math.round(dataTopRated.vote_average * 10) / 10}{' '}
+                  <span className="text-[#46d369]">pontos</span>
+                </>
+              )}
+            </S.Item>
+            <S.Item>
+              {dataTopRated?.release_date &&
+                firstDateYear(dataTopRated.release_date)}
+              {dataTopRated?.first_air_date &&
+                firstDateYear(dataTopRated.first_air_date)}
+            </S.Item>
+            <S.Item>
+              {dataTopRated.runtime && `${dataTopRated.runtime} minutos`}
+              {dataTopRated.number_of_seasons &&
+                `${dataTopRated.number_of_seasons} temporadas`}
+            </S.Item>
+          </S.MediaDetails>
+          <S.Overview>{dataTopRated.overview}</S.Overview>
+          <S.ContentButton>
+            <Button>Detalhes</Button>
+          </S.ContentButton>
+          <S.Item>
+            <span className="font-bold">Gêneros: </span>
+            <span className="text-[#aaa]">
+              {dataTopRated.genres?.map((genre) => genre.name).join(', ')}{' '}
+            </span>
+          </S.Item>
+        </S.Details>
+      </S.TopRated>
       <S.Collection>
         {dataCollection.map((genre) => (
           <MediaGallery.Root key={genre.id}>
