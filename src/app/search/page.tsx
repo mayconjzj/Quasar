@@ -15,7 +15,7 @@ export default async function Search({ searchParams }: SearchProps) {
 
   return (
     <S.Container>
-      <SearchResults.Root>
+      <S.Content>
         <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
         <span className="font-bold">
           {dataSearch.total_results} resultados para títulos
@@ -33,7 +33,7 @@ export default async function Search({ searchParams }: SearchProps) {
             />
           </Pagination.Content>
         </Pagination.Root>
-      </SearchResults.Root>
+      </S.Content>
     </S.Container>
   );
 }
