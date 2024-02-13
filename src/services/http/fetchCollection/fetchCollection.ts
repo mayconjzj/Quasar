@@ -1,8 +1,6 @@
-import { MediaType } from '@/models';
-
 import { fetchGenre, fetchDiscover, fetchTrendings } from '..';
 
-export const fetchCollection = async ({ mediaType }: MediaType) => {
+export const fetchCollection = async ({ mediaType }: { mediaType: string }) => {
   const dataTrendings = await fetchTrendings({ mediaType });
   const dataCategories = await fetchGenre({ mediaType });
 

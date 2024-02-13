@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
+import { MediaPoster } from '@/components/MediaPoster';
 import { Skeleton } from '@/components/Skeleton';
 
 import { cn, formatDate } from '@/lib/utils';
@@ -16,17 +16,7 @@ export const SearchResultsItem = ({
 }) => {
   return (
     <div key={result.id} className={cn('flex gap-x-4 gap-y-2', rest.className)}>
-      {result.poster_path && (
-        <Image
-          className="cursor-pointer duration-200 min-w-[150px] rounded-xl"
-          src={`${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w200${result.poster_path}`}
-          alt={`${result.title || result.name}`}
-          width={150}
-          height={225}
-          unoptimized
-          loading="lazy"
-        />
-      )}
+      {result.poster_path && <MediaPoster media={result} />}
       {!result.poster_path && (
         <Skeleton className="min-w-[150px] min-h-[225px]" />
       )}

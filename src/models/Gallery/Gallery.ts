@@ -1,9 +1,7 @@
 import { MediaInfo } from '..';
 
-export type Collection = {
+export type Gallery = {
   id: number;
   name: string;
   media: MediaInfo[];
 };
-
-export type Collections = Collection[];
