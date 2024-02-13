@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { fetchCollection, fetchTopRated } from '@/services/http';
 
 import { Button } from '@/components/Button';
@@ -65,12 +67,16 @@ export default async function Discover({
             <MediaGallery.Title>{genre.name}</MediaGallery.Title>
             <MediaGallery.Content>
               {genre.media.map((media) => (
-                <>
+                <Link
+                  className="min-w-[150px] h-[225px]"
+                  href={`/${mediaType}/${media.id}`}
+                  key={media.id}
+                >
                   {media.poster_path && <MediaPoster media={media} />}
                   {!media.poster_path && (
                     <Skeleton className="min-w-[150px] h-[225px] scale-90" />
                   )}
-                </>
+                </Link>
               ))}
             </MediaGallery.Content>
           </MediaGallery.Root>

@@ -13,7 +13,7 @@ export const MediaSearchInput = () => {
   return (
     <Form.Root
       onSubmit={redirectSearch}
-      className="hidden md:flex gap-x-1 items-center border-[0.5px] rounded-md px-2 border-foreground"
+      className="hidden md:flex gap-x-1 items-center border-[0.5px] rounded-xl px-2 border-foreground"
     >
       <Form.Input
         type="text"
