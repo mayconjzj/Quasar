@@ -1,7 +1,6 @@
 import { fetchSearch } from '@/services/http/fetchSearch';
 
 import { Pagination } from '@/components/Pagination';
-import { PaginationLinks } from '@/components/PaginationLinks';
 import { SearchResults } from '@/components/SearchResults';
 
 import { SearchProps } from '@/models/Search';
@@ -27,7 +26,7 @@ export default async function Search({ searchParams }: SearchProps) {
         ))}
         <Pagination.Root>
           <Pagination.Content>
-            <PaginationLinks
+            <Pagination.Links
               currentPage={dataSearch.page}
               totalPages={dataSearch.total_pages}
               endpoint={`/search?query=${searchParams.query}`}
