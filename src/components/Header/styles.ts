@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 
-export const Header = tw.header<{ scrollActive: boolean }>`
-  ${({ scrollActive }) => scrollActive && 'bg-background'}
+export const Header = tw.header<{ scroll: string }>`
+  ${({ scroll }) => scroll === 'true' && 'bg-background'}
   placeholder:px-2
   md:px-[30px]
   h-[70px]

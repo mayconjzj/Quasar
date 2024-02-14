@@ -8,7 +8,7 @@ export const Header = () => {
   const { scrollActive } = useHeader();
 
   return (
-    <S.Header scrollActive={scrollActive}>
+    <S.Header scroll={scrollActive.toString()}>
       <Logo />
       <SearchInput />
       <MainNav />
