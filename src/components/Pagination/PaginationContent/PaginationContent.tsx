@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cn } from '@/lib';
+import { cn } from '@/lib/tailwind-merge';
 
 export const PaginationContent = React.forwardRef<
   HTMLUListElement,

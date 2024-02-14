@@ -1,10 +1,10 @@
 import '@/styles/globals.css';
 
-import { Providers } from '@/contexts';
+import { Providers } from '@/contexts/providers';
 
 import { Header } from '@/components/Header';
 
-import { cn } from '@/lib/TailwindMerge/TailwindMerge';
+import { cn } from '@/lib/tailwind-merge';
 
 export default function RootLayout({
   children

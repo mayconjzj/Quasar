@@ -5,7 +5,7 @@ import { Skeleton } from '@/components/Skeleton';
 
 import { MediaInfo } from '@/models';
 
-import { formatDate } from '@/lib';
+import { formatDate } from '@/lib/format-date';
 
 import * as S from './styles';
 

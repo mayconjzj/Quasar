@@ -5,7 +5,7 @@ import { MediaBackdrop } from '@/components/MediaBackdrop';
 
 import { MediaInfo } from '@/models';
 
-import { firstDateYear } from '@/lib';
+import { firstDateYear } from '@/lib/first-date-year';
 
 import * as S from './styles';
 

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { cn } from '@/lib';
+import { cn } from '@/lib/tailwind-merge';
 
 type ActiveLinkProps = {
   href: string;

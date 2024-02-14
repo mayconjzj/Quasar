@@ -4,8 +4,8 @@ import { Pagination } from '@/components/Pagination';
 
 import { SearchProps } from '@/models/Search';
 
-import { NoResults } from './NoResults';
-import { SearchResults } from './SearchResults';
+import { NoResults } from './no-result';
+import { SearchResults } from './search-result';
 import * as S from './styles';
 
 export default async function Search({ searchParams }: SearchProps) {

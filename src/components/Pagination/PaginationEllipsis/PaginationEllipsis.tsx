@@ -1,6 +1,6 @@
 import { DotsHorizontalIcon } from '@radix-ui/react-icons';
 
-import { cn } from '@/lib';
+import { cn } from '@/lib/tailwind-merge';
 
 export const PaginationEllipsis = ({
   className,

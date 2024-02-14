@@ -1,4 +1,4 @@
-import { fetchMediaInfo } from '@/services/http';
+import { api } from '@/lib/api';
 
 export default async function Page({
   params
@@ -6,10 +6,10 @@ export default async function Page({
   params: { id: number; media_type: string };
 }) {
   const IdMediaInfo = params.id;
-  const dataMediaInfo = await fetchMediaInfo({
-    mediaType: params.media_type,
-    id: IdMediaInfo
+  const dataMediaInfo = await api.get(`/${params.media_type}/${IdMediaInfo}`, {
+    params: { language: 'pt-BR' }
   });
+
   return (
     <main className="mt-[70px]">
       <article>

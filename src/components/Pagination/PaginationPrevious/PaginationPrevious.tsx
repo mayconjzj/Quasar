@@ -1,6 +1,6 @@
 import { ChevronLeftIcon } from '@radix-ui/react-icons';
 
-import { cn } from '@/lib';
+import { cn } from '@/lib/tailwind-merge';
 
 import { PaginationLink } from '../PaginationLink';
 

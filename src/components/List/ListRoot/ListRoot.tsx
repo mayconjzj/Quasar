@@ -1,4 +1,4 @@
-import { cn } from '@/lib';
+import { cn } from '@/lib/tailwind-merge';
 
 type ListRootProps = {
   children: React.ReactNode;

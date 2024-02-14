@@ -1,6 +1,6 @@
 import { ButtonProps, buttonVariants } from '@/components/Button';
 
-import { cn } from '@/lib';
+import { cn } from '@/lib/tailwind-mergew';
 
 type PaginationLinkProps = {
   isActive?: boolean;
