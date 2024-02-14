@@ -12,12 +12,17 @@ import * as S from './styles';
 export const SearchResults = ({ results }: { results: MediaInfo[] }) => {
   return results.map((result) => (
     <S.SearchResultsItem key={result.id}>
-      {result.poster_path && <MediaPoster media={result} />}
+      {result.poster_path && (
+        <Link href={`/discover/${result.media_type}/${result.id}`}>
+          <MediaPoster media={result} />
+        </Link>
+      )}
       {!result.poster_path && (
         <Skeleton className="min-w-[150px] min-h-[225px]" />
       )}
+
       <S.Details>
-        <Link href={`/${result.media_type}/${result.id}`}>
+        <Link href={`/discover/${result.media_type}/${result.id}`}>
           <S.SubTitle>{result.title || result.name}</S.SubTitle>
         </Link>
         {result.release_date ||

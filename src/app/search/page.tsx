@@ -19,10 +19,13 @@ export default async function Search({ searchParams }: SearchProps) {
       <S.Content>
         <S.Title>&quot;{searchParams.query}&quot; No Quasar</S.Title>
         <span className="font-bold">
-          {dataSearch.total_results} resultados para títulos
+          {dataSearch.total_results} resultados para &quot;{searchParams.query}
+          &quot;
         </span>
+
         <NoResults results={dataSearch.results} />
         <SearchResults results={dataSearch.results} />
+
         <Pagination.Root>
           <Pagination.Content>
             <Pagination.Links

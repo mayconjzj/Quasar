@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Button } from '@/components/Button';
 import { MediaBackdrop } from '@/components/MediaBackdrop';
 
@@ -17,6 +19,7 @@ export const TopRated = ({ dataTopRated }: TopRatedProps) => {
       <MediaBackdrop dataTopRated={dataTopRated} />
       <S.GradientBottom />
       <S.GradientLeft />
+
       <S.Details>
         <S.Title>{dataTopRated?.title || dataTopRated?.name}</S.Title>
         <S.MediaDetails>
@@ -40,9 +43,14 @@ export const TopRated = ({ dataTopRated }: TopRatedProps) => {
               `${dataTopRated.number_of_seasons} temporadas`}
           </S.Item>
         </S.MediaDetails>
+
         <S.Overview>{dataTopRated.overview}</S.Overview>
         <S.ContentButton>
-          <Button>Detalhes</Button>
+          <Link
+            href={`/discover/${dataTopRated.media_type}/${dataTopRated.id}`}
+          >
+            <Button>Detalhes</Button>
+          </Link>
         </S.ContentButton>
         <S.Item>
           <span className="font-bold">Gêneros: </span>
