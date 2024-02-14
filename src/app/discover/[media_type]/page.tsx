@@ -20,12 +20,15 @@ export default async function Discover({ params }: DiscoverProps) {
     const trendings = await api.get(`/trending/${mediaType}/week`, {
       params: { page: 1, language: 'pt-BR' }
     });
+
     const ramdomMedia =
       trendings.results[Math.floor(Math.random() * trendings.results.length)];
 
-    return api.get(`/${mediaType}/${ramdomMedia.id}`, {
+    const mediaInfo = await api.get(`/${mediaType}/${ramdomMedia.id}`, {
       params: { language: 'pt-BR' }
     });
+
+    return mediaInfo;
   };
 
   // Fetch dos filmes ou series de acordo com as categorias

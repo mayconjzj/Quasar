@@ -24,14 +24,12 @@ export const TopRated = ({ dataTopRated, mediaType }: TopRatedProps) => {
       <S.Details>
         <S.Title>{dataTopRated?.title || dataTopRated?.name}</S.Title>
         <S.MediaDetails>
-          <S.Item>
-            {dataTopRated.vote_average && (
-              <>
-                {Math.round(dataTopRated.vote_average * 10) / 10}{' '}
-                <span className="text-[#46d369]">pontos</span>
-              </>
-            )}
-          </S.Item>
+          {dataTopRated.vote_average > 0 && (
+            <S.Item>
+              {Math.round(dataTopRated.vote_average * 10) / 10}{' '}
+              <span className="text-[#46d369]">pontos</span>
+            </S.Item>
+          )}
           <S.Item>
             {dataTopRated.release_date &&
               firstDateYear(dataTopRated.release_date)}
@@ -39,8 +37,8 @@ export const TopRated = ({ dataTopRated, mediaType }: TopRatedProps) => {
               firstDateYear(dataTopRated.first_air_date)}
           </S.Item>
           <S.Item>
-            {dataTopRated.runtime && `${dataTopRated.runtime} minutos`}
-            {dataTopRated.number_of_seasons &&
+            {dataTopRated.runtime > 0 && `${dataTopRated.runtime} minutos`}
+            {dataTopRated.number_of_seasons > 0 &&
               `${dataTopRated.number_of_seasons} temporadas`}
           </S.Item>
         </S.MediaDetails>
