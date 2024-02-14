@@ -1,12 +1,17 @@
-import { fetchSearch } from '@/services/api-calls';
+import { fetchSearch } from '@/services';
 
 import { Pagination } from '@/components/Pagination';
-
-import { SearchProps } from '@/models/Search';
 
 import { NoResults } from './no-result';
 import { SearchResults } from './search-result';
 import * as S from './styles';
+
+export type SearchProps = {
+  searchParams: {
+    query: string;
+    page: string;
+  };
+};
 
 export default async function Search({ searchParams }: SearchProps) {
   const dataSearch = await fetchSearch(searchParams.query, searchParams.page);

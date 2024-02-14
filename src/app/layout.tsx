@@ -4,7 +4,7 @@ import { Providers } from '@/contexts/providers';
 
 import { Header } from '@/components/Header';
 
-import { cn } from '@/lib/tailwind-merge';
+import { cn } from '@/lib/utils';
 
 export default function RootLayout({
   children

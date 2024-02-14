@@ -1,4 +1,6 @@
-import { fetchGenres, fetchMediaByGenre, fetchTrending } from './api-calls';
+import { Gallery } from '@/models';
+
+import { fetchGenres, fetchMediaByGenre, fetchTrending } from '../ApiCalls/api-calls';
 
 export async function fetchCollection(mediaType: string) {
   const [dataTrendings, dataCategories] = await Promise.all([
@@ -22,5 +24,5 @@ export async function fetchCollection(mediaType: string) {
   return [
     { id: 1, name: 'Destaques', media: trendingMedia },
     ...reelsAndCategories
-  ];
+  ] as Gallery[];
 }

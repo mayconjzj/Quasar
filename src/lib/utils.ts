@@ -1,3 +1,13 @@
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export const getPageLink = (endpoint: string, page: number) =>
+  `${endpoint}&page=${page}`;
+
 export const formatDate = (dateString: string) => {
   const months = [
     'janeiro',

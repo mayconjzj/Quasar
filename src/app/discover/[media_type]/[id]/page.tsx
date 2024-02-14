@@ -1,14 +1,14 @@
-import { api } from '@/lib/api';
+import { fetchMediaDetails } from '@/services';
 
-export default async function Page({
-  params
-}: {
-  params: { id: number; media_type: string };
-}) {
-  const IdMediaInfo = params.id;
-  const dataMediaInfo = await api.get(`/${params.media_type}/${IdMediaInfo}`, {
-    params: { language: 'pt-BR' }
-  });
+type MediaDetailsProps = {
+  params: {
+    id: number;
+    media_type: string;
+  };
+};
+
+export default async function MediaDetails({ params }: MediaDetailsProps) {
+  const dataMediaInfo = await fetchMediaDetails(params.media_type, params.id);
 
   return (
     <main className="mt-[70px]">

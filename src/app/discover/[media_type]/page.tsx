@@ -1,5 +1,4 @@
-import { fetchCollection } from '@/services/collection-api';
-import { fetchTopRated } from '@/services/top-rated-api';
+import { fetchCollection, fetchTopRated } from '@/services';
 
 import { Collection } from './collection';
 import * as S from './styles';

@@ -3,13 +3,17 @@ import Link from 'next/link';
 import { MediaPoster } from '@/components/MediaPoster';
 import { Skeleton } from '@/components/Skeleton';
 
-import { MediaInfo } from '@/models';
+import { formatDate } from '@/lib/utils';
 
-import { formatDate } from '@/lib/format-date';
+import { MediaInfo } from '@/models';
 
 import * as S from './styles';
 
-export const SearchResults = ({ results }: { results: MediaInfo[] }) => {
+type SearchResultsProps = {
+  results: MediaInfo[];
+};
+
+export const SearchResults = ({ results }: SearchResultsProps) => {
   return results.map((result) => (
     <S.SearchResults key={result.id}>
       {result.poster_path && (

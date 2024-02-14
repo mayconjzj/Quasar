@@ -1,4 +1,4 @@
-import { cn } from '@/lib/tailwind-merge';
+import { cn } from '@/lib/utils';
 
 export const Skeleton = ({
   className,

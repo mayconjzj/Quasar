@@ -1,6 +1,6 @@
 import { Genres, MediaInfo, MediaResults } from '@/models';
 
-import { api } from '@/lib/api';
+import { api } from '@/lib/Api/api';
 
 export const fetchTrending = async (mediaType: string) => {
   return (await api.get(`/trending/${mediaType}/week`)) as MediaResults;
