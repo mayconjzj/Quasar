@@ -1,4 +1,4 @@
-import { fetchSearch } from '@/services/http/fetchSearch';
+import { fetchSearch } from '@/services/api-calls';
 
 import { Pagination } from '@/components/Pagination';
 
@@ -9,10 +9,7 @@ import { SearchResults } from './search-result';
 import * as S from './styles';
 
 export default async function Search({ searchParams }: SearchProps) {
-  const dataSearch = await fetchSearch({
-    query: searchParams.query,
-    page: searchParams.page
-  });
+  const dataSearch = await fetchSearch(searchParams.query, searchParams.page);
 
   return (
     <S.Container>
