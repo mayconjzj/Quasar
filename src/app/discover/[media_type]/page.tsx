@@ -2,7 +2,7 @@ import { Genres, MediaResults } from '@/models';
 
 import { api } from '@/lib/api';
 
-import { Collection } from './collection';
+import { Collection } from './collection.tsx2';
 import * as S from './styles';
 import { TopRated } from './top-rated';
 
