@@ -11,10 +11,10 @@ import * as S from './styles';
 
 export const SearchResults = ({ results }: { results: MediaInfo[] }) => {
   return results.map((result) => (
-    <S.SearchResultsItem key={result.id}>
+    <S.SearchResults key={result.id}>
       {result.poster_path && (
         <Link href={`/discover/${result.media_type}/${result.id}`}>
-          <MediaPoster media={result} />
+          <MediaPoster className="scale-100" media={result} />
         </Link>
       )}
       {!result.poster_path && (
@@ -41,6 +41,6 @@ export const SearchResults = ({ results }: { results: MediaInfo[] }) => {
         )}
         {result.overview && <S.Overview>{result.overview}</S.Overview>}
       </S.Details>
-    </S.SearchResultsItem>
+    </S.SearchResults>
   ));
 };
