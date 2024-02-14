@@ -3,9 +3,9 @@ import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { MediaBackdrop } from '@/components/MediaBackdrop';
 
-import { MediaInfo } from '@/models';
+import { firstDateYear } from '@/lib/utils';
 
-import { firstDateYear } from '@/lib/FirstDateYear/first-date-year';
+import { MediaInfo } from '@/models';
 
 import * as S from './styles';
 
