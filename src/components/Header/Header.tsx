@@ -1,13 +1,17 @@
-import { Logo } from './components/Logo';
-import { MainNav } from './components/MainNav';
-import { MediaSearchInput } from './components/MediaSearchInput';
+'use client';
+
+import { Logo, MainNav, SearchInput } from './components';
+import { useHeader } from './hooks';
+import * as S from './styles';
 
 export const Header = () => {
+  const { scrollActive } = useHeader();
+
   return (
-    <header className="px-2 md:px-[30px] h-[70px] absolute flex justify-between w-screen items-center z-10">
+    <S.Header scrollActive={scrollActive}>
       <Logo />
-      <MediaSearchInput />
+      <SearchInput />
       <MainNav />
-    </header>
+    </S.Header>
   );
 };

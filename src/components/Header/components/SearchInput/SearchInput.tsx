@@ -5,10 +5,10 @@ import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 
-import { useSearch } from './hooks/useSearch';
+import { useSearchInput } from './hooks';
 
-export const MediaSearchInput = () => {
-  const { register, redirectSearch } = useSearch();
+export const SearchInput = () => {
+  const { register, redirectSearch } = useSearchInput();
 
   return (
     <Form.Root
