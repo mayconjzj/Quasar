@@ -11,9 +11,10 @@ import * as S from './styles';
 
 type TopRatedProps = {
   dataTopRated: MediaInfo;
+  mediaType: 'tv' | 'movie';
 };
 
-export const TopRated = ({ dataTopRated }: TopRatedProps) => {
+export const TopRated = ({ dataTopRated, mediaType }: TopRatedProps) => {
   return (
     <S.TopRated>
       <MediaBackdrop dataTopRated={dataTopRated} />
@@ -46,9 +47,7 @@ export const TopRated = ({ dataTopRated }: TopRatedProps) => {
 
         <S.Overview>{dataTopRated.overview}</S.Overview>
         <S.ContentButton>
-          <Link
-            href={`/discover/${dataTopRated.media_type}/${dataTopRated.id}`}
-          >
+          <Link href={`/discover/${mediaType}/${dataTopRated.id}`}>
             <Button>Detalhes</Button>
           </Link>
         </S.ContentButton>

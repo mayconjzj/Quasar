@@ -10,9 +10,10 @@ import * as S from './styles';
 
 type CollectionProps = {
   dataCollection: Gallery[];
+  mediaType: 'movie' | 'tv';
 };
 
-export const Collection = ({ dataCollection }: CollectionProps) => {
+export const Collection = ({ dataCollection, mediaType }: CollectionProps) => {
   return (
     <S.Collection>
       {dataCollection.map((genre) => (
@@ -21,7 +22,7 @@ export const Collection = ({ dataCollection }: CollectionProps) => {
           <List.Root className="overflow-x-auto flex">
             {genre.media.map((media) => (
               <List.Item key={media.id}>
-                <Link href={`/discover/${media.media_type}/${media.id}`}>
+                <Link href={`/discover/${mediaType}/${media.id}`}>
                   {media.poster_path && <MediaPoster media={media} />}
                   {!media.poster_path && (
                     <Skeleton className="min-w-[150px] h-[225px] scale-90" />

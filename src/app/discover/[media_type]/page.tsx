@@ -19,8 +19,8 @@ export default async function Discover({ params }: DiscoverProps) {
 
   return (
     <S.Container>
-      <TopRated dataTopRated={dataTopRated} />
-      <Collection dataCollection={dataCollection} />
+      <TopRated dataTopRated={dataTopRated} mediaType={mediaType} />
+      <Collection dataCollection={dataCollection} mediaType={mediaType} />
     </S.Container>
   );
 }
