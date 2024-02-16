@@ -14,18 +14,19 @@ export const SearchInput = () => {
     <>
       <Form.Root
         onSubmit={redirectSearch}
-        className="hidden sm:flex gap-x-1 items-center border-[0.5px] rounded-xl px-2 border-foreground"
+        className="flex gap-x-1 items-center border-[0.5px] rounded-xl px-2 border-foreground"
       >
         <Form.Input
           type="text"
           placeholder="Pesquisar"
           id="search"
-          className="w-48 h-9 border-none focus:bg-transparent"
+          className="w-38 h-8 border-none focus:bg-transparent"
           {...register('search')}
         />
+
         <Button
-          className="w-9 h-9 p-0 shadow-none bg-transparent hover:bg-transparent"
           type="submit"
+          className="w-9 h-9 p-0 shadow-none bg-transparent hover:bg-transparent"
         >
           <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
         </Button>
