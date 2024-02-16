@@ -12,7 +12,8 @@ export const Hamburger = ({ isOpen, handleClick }: HamburgerProps) => {
 
   return (
     <S.Content onClick={handleClick} title={title}>
-      {isOpen ? <FaTimes /> : <FaBars />}
+      {isOpen && <FaTimes />}
+      {isOpen || <FaBars />}
     </S.Content>
   );
 };
