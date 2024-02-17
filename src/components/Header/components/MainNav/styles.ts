@@ -7,7 +7,7 @@ export const MainNav = tw.nav`
   hidden
 `;
 
-export const MainNavMobile = tw.nav<{ is_open: boolean }>`
+export const MainNavMobile = tw.nav<{ is_open: string }>`
   ${({ is_open }) => `
     md:hidden
     invisible
@@ -23,7 +23,7 @@ export const MainNavMobile = tw.nav<{ is_open: boolean }>`
     opacity-0
     duration-150
     ${
-      is_open &&
+      is_open === 'true' &&
       `
         w-[60%]
         visible
@@ -34,10 +34,10 @@ export const MainNavMobile = tw.nav<{ is_open: boolean }>`
   `}
 `;
 
-export const ToggleHamburger = tw.div<{ is_open: boolean }>`
+export const ToggleHamburger = tw.div<{ is_open: string }>`
   ${({ is_open }) => `
     md:hidden
 
-    ${is_open && `z-10`}
+    ${is_open === 'true' && `z-10`}
   `}
 `;

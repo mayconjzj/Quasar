@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components';
 
-export const SearchInput = tw.div<{ is_open: boolean }>`
+export const SearchInput = tw.div<{ is_open: string }>`
   ${({ is_open }) => `
     flex
     items-center
@@ -19,11 +19,13 @@ export const SearchInput = tw.div<{ is_open: boolean }>`
     absolute
     sm:bg-transparent
     bg-background
+    rounded-xl
+    border-b
     ${
-      is_open &&
+      is_open === 'true' &&
       `
       visible
-      h-screen
+      h-[15vh]
       opacity-100
     `
     }

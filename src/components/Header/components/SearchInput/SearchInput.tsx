@@ -13,7 +13,7 @@ export const SearchInput = () => {
 
   return (
     <>
-      <S.SearchInput is_open={isOpen}>
+      <S.SearchInput is_open={isOpen.toString()}>
         <Form.Root
           onSubmit={redirectSearch}
           className="flex gap-x-1 items-center border-[1px] rounded-xl px-2 border-foreground"
