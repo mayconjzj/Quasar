@@ -6,15 +6,14 @@ import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 
 import { useSearchInput } from './hooks';
+import * as S from './styles';
 
 export const SearchInput = () => {
   const { register, redirectSearch, isOpen, toggleSearch } = useSearchInput();
 
   return (
     <>
-      <div
-        className={`flex gap-x-1 sm:visible items-center justify-center duration-150 ${isOpen ? 'visible absolute w-screen h-screen bg-background opacity-100 mx-auto' : 'invisible h-0 overflow-hidden opacity-0'}`}
-      >
+      <S.SearchInput is_open={isOpen}>
         <Form.Root
           onSubmit={redirectSearch}
           className="flex gap-x-1 items-center border-[1px] rounded-xl px-2 border-foreground"
@@ -34,11 +33,11 @@ export const SearchInput = () => {
             <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
           </Button>
         </Form.Root>
-      </div>
+      </S.SearchInput>
 
-      <div className="sm:hidden ml-auto cursor-pointer" onClick={toggleSearch}>
+      <S.ToogleSearch onClick={toggleSearch}>
         <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
-      </div>
+      </S.ToogleSearch>
     </>
   );
 };

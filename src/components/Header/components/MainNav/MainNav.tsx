@@ -12,7 +12,7 @@ export const MainNav = () => {
 
   return (
     <>
-      <nav className="md:flex items-center justify-between hidden">
+      <S.MainNav>
         <List.Root>
           <List.Item>
             <ActiveLink href="/discover/movies"> Filmes</ActiveLink>
@@ -21,13 +21,13 @@ export const MainNav = () => {
             <ActiveLink href="/discover/series">Séries</ActiveLink>
           </List.Item>
         </List.Root>
-      </nav>
+      </S.MainNav>
 
-      <div className="md:hidden z-20">
+      <S.ToggleHamburger is_open={isOpen}>
         <Hamburger isOpen={isOpen} handleClick={handleClick} />
-      </div>
+      </S.ToggleHamburger>
 
-      <S.NavMobile is_open={isOpen}>
+      <S.MainNavMobile is_open={isOpen}>
         <List.Root className="flex flex-col gap-2 font-bold">
           <List.Item className="border-b-2">
             <ActiveLink href="/discover/movies"> Filmes</ActiveLink>
@@ -36,7 +36,7 @@ export const MainNav = () => {
             <ActiveLink href="/discover/series">Séries</ActiveLink>
           </List.Item>
         </List.Root>
-      </S.NavMobile>
+      </S.MainNavMobile>
     </>
   );
 };

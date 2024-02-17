@@ -1,9 +1,15 @@
 import tw from 'tailwind-styled-components';
 
-export const NavMobile = tw.nav<{ is_open: boolean }>`
+export const MainNav = tw.nav`
+  md:flex
+  items-center
+  justify-between
+  hidden
+`;
+
+export const MainNavMobile = tw.nav<{ is_open: boolean }>`
   ${({ is_open }) => `
     md:hidden
-    z-10
     invisible
     overflow-x-hidden
     fixed
@@ -25,5 +31,13 @@ export const NavMobile = tw.nav<{ is_open: boolean }>`
         opacity-100
       `
     }
+  `}
+`;
+
+export const ToggleHamburger = tw.div<{ is_open: boolean }>`
+  ${({ is_open }) => `
+    md:hidden
+
+    ${is_open && `z-10`}
   `}
 `;

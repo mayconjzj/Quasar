@@ -18,7 +18,7 @@ export const api = {
       const response = await axiosInstance.get(endpoint, options);
       return response.data;
     } catch (error) {
-      console.log('Error ao buscar os dados - ', error);
+      console.log('Error ao buscar os dados - ');
     }
   }
 };
