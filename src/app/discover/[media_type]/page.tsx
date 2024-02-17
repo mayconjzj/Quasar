@@ -1,6 +1,6 @@
 import { fetchCollection, fetchTopRated } from '@/services';
 
-import { Collection } from './Collection';
+import { Collection } from './C';
 import * as S from './styles';
 import { TopRated } from './TopRated';
 
