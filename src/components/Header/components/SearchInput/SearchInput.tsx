@@ -27,7 +27,7 @@ export const SearchInput = () => {
         onClick={toggleSearch}
         className="bg-transparent shadow-none p-0"
       >
-        <MagnifyingGlassIcon className="w-6 h-6" />
+        <MagnifyingGlassIcon className="w-8 h-8" />
       </Button>
     </Form.Root>
   );
