@@ -16,7 +16,7 @@ export const useSearchInput = () => {
   const { push } = useRouter();
 
   const redirectSearch = handleSubmit(() => {
-    const { search } = getValues();
+    const { search } = getValues() as { search: string };
     push(`/search?query=${search}&page=1`);
     setValue('search', '');
   });
