@@ -11,23 +11,23 @@ export const MainNavMobile = tw.nav<{ is_open: string }>`
   ${({ is_open }) => `
     md:hidden
     invisible
-    overflow-x-hidden
+    overflow-hidden
     fixed
-    bg-background
+    top-[70px]
+    right-2
+    shadow-lg
+    bg-background/90
     p-4
-    pt-[55px]
-    right-0
-    top-0
-    w-0
-    h-screen
+    w-44
+    h-44
     opacity-0
-    duration-150
+    duration-300
+    rounded-xl
     ${
       is_open === 'true' &&
       `
-        w-[60%]
         visible
-        overflow-x-auto
+        overflow-auto
         opacity-100
       `
     }
