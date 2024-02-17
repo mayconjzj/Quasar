@@ -25,7 +25,7 @@ export const MainNavMobile = tw.nav<{ is_open: boolean }>`
     ${
       is_open &&
       `
-        w-[50%]
+        w-[60%]
         visible
         overflow-x-auto
         opacity-100
