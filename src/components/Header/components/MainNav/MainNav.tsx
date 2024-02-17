@@ -27,7 +27,7 @@ export const MainNav = () => {
         <Hamburger isOpen={isOpen} handleClick={handleClick} />
       </S.ToggleHamburger>
 
-      <S.MainNavMobile is_open={isOpen.toString()}>
+      <S.MainNavMobile is_open={isOpen.toString()} id="main-nav">
         <List.Root className="flex flex-col gap-2 font-bold">
           <List.Item className="border-b-2 p-2">
             <ActiveLink href="/discover/movies"> Filmes</ActiveLink>

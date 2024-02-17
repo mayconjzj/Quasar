@@ -13,6 +13,7 @@ export const SearchInput = () => {
   return (
     <Form.Root
       onSubmit={redirectSearch}
+      id="search-input"
       className={`sm:justify-center sm:w-auto sm:ml-0 flex gap-x-1 items-center justify-end w-10 h-10 px-1 overflow-hidden ml-auto duration-150 ${isOpen && 'w-[300px]'}`}
     >
       <Form.Input

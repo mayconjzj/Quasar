@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -11,6 +11,22 @@ export const useSearchInput = () => {
   const toggleSearch = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      const search = document.getElementById('search-input');
+
+      if (search && !search.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  });
 
   const schema = z.object({
     search: z.string().min(1)
