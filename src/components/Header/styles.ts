@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 
 export const Header = tw.header<{ scroll: string }>`
-  ${({ scroll }) => scroll === 'true' && 'bg-background'}
+  ${({ scroll }) => scroll === 'true' && 'bg-background/80'}
   placeholder:px-2
   md:px-[30px]
   px-2
