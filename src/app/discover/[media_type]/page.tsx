@@ -1,8 +1,8 @@
 import { fetchCollection, fetchTopRated } from '@/services';
 
-import { Collection } from './collection';
+import { Collection } from './Collection';
 import * as S from './styles';
-import { TopRated } from './top-rated';
+import { TopRated } from './TopRated';
 
 type DiscoverProps = {
   params: {

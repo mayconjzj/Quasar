@@ -2,8 +2,8 @@ import { fetchSearch } from '@/services';
 
 import { Pagination } from '@/components/Pagination';
 
-import { NoResults } from './no-result';
-import { SearchResults } from './search-result';
+import { NoResults } from './NoResults';
+import { SearchResults } from './SearchResults';
 import * as S from './styles';
 
 export type SearchProps = {

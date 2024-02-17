@@ -1,1 +1,1 @@
-export * from './top-rated-api';
+export * from './TopRatedApi';

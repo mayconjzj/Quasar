@@ -1,1 +1,1 @@
-export * from './collection-api';
+export * from './CollectionApi';

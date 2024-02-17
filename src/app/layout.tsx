@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 
-import { Providers } from '@/contexts/providers';
+import { Providers } from '@/contexts/Providers';
 
 import { Header } from '@/components/Header';
 

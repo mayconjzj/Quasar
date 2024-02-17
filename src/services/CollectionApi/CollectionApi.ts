@@ -4,7 +4,7 @@ import {
   fetchGenres,
   fetchMediaByGenre,
   fetchTrending
-} from '../ApiCalls/api-calls';
+} from '../ApiCalls/ApiCalls';
 
 export async function fetchCollection(mediaType: string) {
   const [dataTrendings, dataCategories] = await Promise.all([
