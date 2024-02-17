@@ -15,7 +15,7 @@ export const NavMobile = tw.nav<{ is_open: boolean }>`
     w-0
     h-screen
     opacity-0
-    duration-300
+    duration-150
     ${
       is_open &&
       `

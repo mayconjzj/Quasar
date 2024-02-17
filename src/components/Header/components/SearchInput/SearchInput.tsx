@@ -8,33 +8,35 @@ import { Form } from '@/components/Form';
 import { useSearchInput } from './hooks';
 
 export const SearchInput = () => {
-  const { register, redirectSearch } = useSearchInput();
+  const { register, redirectSearch, isOpen, toggleSearch } = useSearchInput();
 
   return (
     <>
-      {/* Desktop */}
-      <Form.Root
-        onSubmit={redirectSearch}
-        className="hidden sm:flex gap-x-1 items-center border-[0.5px] rounded-xl px-2 border-foreground"
+      <div
+        className={`flex gap-x-1 sm:visible items-center justify-center duration-150 ${isOpen ? 'visible absolute w-screen h-screen bg-background opacity-100 mx-auto' : 'invisible h-0 overflow-hidden opacity-0'}`}
       >
-        <Form.Input
-          type="text"
-          placeholder="Pesquisar"
-          id="search"
-          className="w-38 h-8 border-none focus:bg-transparent"
-          {...register('search')}
-        />
-
-        <Button
-          type="submit"
-          className="w-9 h-9 p-0 shadow-none bg-transparent hover:bg-transparent"
+        <Form.Root
+          onSubmit={redirectSearch}
+          className="flex gap-x-1 items-center border-[1px] rounded-xl px-2 border-foreground"
         >
-          <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
-        </Button>
-      </Form.Root>
+          <Form.Input
+            type="text"
+            placeholder="Pesquisar"
+            id="search"
+            className="w-38 h-8 border-none focus:bg-transparent"
+            {...register('search')}
+          />
 
-      {/* Mobile */}
-      <div className="sm:hidden ml-auto mr-2 cursor-pointer">
+          <Button
+            type="submit"
+            className="w-9 h-9 p-0 shadow-none bg-transparent hover:bg-transparent"
+          >
+            <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
+          </Button>
+        </Form.Root>
+      </div>
+
+      <div className="sm:hidden ml-auto cursor-pointer" onClick={toggleSearch}>
         <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
       </div>
     </>

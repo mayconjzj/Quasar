@@ -11,6 +11,7 @@ export const Header = tw.header<{ scroll: string }>`
   top-0
   flex
   justify-between
+  gap-2
   w-screen
   items-center
   z-10
