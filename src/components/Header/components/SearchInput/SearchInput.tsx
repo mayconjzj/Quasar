@@ -6,38 +6,29 @@ import { Button } from '@/components/Button';
 import { Form } from '@/components/Form';
 
 import { useSearchInput } from './hooks';
-import * as S from './styles';
 
 export const SearchInput = () => {
   const { register, redirectSearch, isOpen, toggleSearch } = useSearchInput();
 
   return (
-    <>
-      <S.SearchInput is_open={isOpen.toString()}>
-        <Form.Root
-          onSubmit={redirectSearch}
-          className="flex gap-x-1 items-center border-[1px] rounded-xl px-2 border-foreground"
-        >
-          <Form.Input
-            type="text"
-            placeholder="Pesquisar"
-            id="search"
-            className="w-38 h-8 border-none focus:bg-transparent"
-            {...register('search')}
-          />
+    <Form.Root
+      onSubmit={redirectSearch}
+      className={`sm:justify-center sm:w-auto sm:ml-0 flex gap-x-1 items-center justify-end w-10 h-10 px-1 overflow-hidden ml-auto duration-150 ${isOpen && 'w-[300px]'}`}
+    >
+      <Form.Input
+        type="text"
+        placeholder="Pesquisar"
+        className="border-none shadow-none"
+        {...register('search')}
+      />
 
-          <Button
-            type="submit"
-            className="w-9 h-9 p-0 shadow-none bg-transparent hover:bg-transparent"
-          >
-            <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
-          </Button>
-        </Form.Root>
-      </S.SearchInput>
-
-      <S.ToogleSearch onClick={toggleSearch}>
-        <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
-      </S.ToogleSearch>
-    </>
+      <Button
+        type="submit"
+        onClick={toggleSearch}
+        className="bg-transparent shadow-none p-0"
+      >
+        <MagnifyingGlassIcon className="w-6 h-6" />
+      </Button>
+    </Form.Root>
   );
 };

@@ -1,6 +1,4 @@
-import { FaBars, FaTimes } from 'react-icons/fa';
-
-import * as S from './styles';
+import { HamburgerMenuIcon, Cross1Icon } from '@radix-ui/react-icons';
 
 type HamburgerProps = {
   isOpen: boolean;
@@ -11,9 +9,9 @@ export const Hamburger = ({ isOpen, handleClick }: HamburgerProps) => {
   const title = isOpen ? 'Fechar' : 'Abrir';
 
   return (
-    <S.Content onClick={handleClick} title={title}>
-      {isOpen && <FaTimes />}
-      {isOpen || <FaBars />}
-    </S.Content>
+    <div onClick={handleClick} title={title}>
+      {isOpen && <Cross1Icon className="w-6 h-6" />}
+      {isOpen || <HamburgerMenuIcon className="w-6 h-6" />}
+    </div>
   );
 };
