@@ -12,9 +12,10 @@ export const SearchInput = () => {
 
   return (
     <>
+      {/* Desktop */}
       <Form.Root
         onSubmit={redirectSearch}
-        className="flex gap-x-1 items-center border-[0.5px] rounded-xl px-2 border-foreground"
+        className="hidden sm:flex gap-x-1 items-center border-[0.5px] rounded-xl px-2 border-foreground"
       >
         <Form.Input
           type="text"
@@ -31,6 +32,11 @@ export const SearchInput = () => {
           <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
         </Button>
       </Form.Root>
+
+      {/* Mobile */}
+      <div className="sm:hidden ml-auto mr-2 cursor-pointer">
+        <MagnifyingGlassIcon className="w-[25px] h-[25px] text-foreground" />
+      </div>
     </>
   );
 };
