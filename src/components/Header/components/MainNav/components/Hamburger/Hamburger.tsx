@@ -10,8 +10,8 @@ export const Hamburger = ({ isOpen, handleClick }: HamburgerProps) => {
 
   return (
     <div onClick={handleClick} title={title}>
-      {isOpen && <Cross1Icon className="w-8 h-8" />}
-      {isOpen || <HamburgerMenuIcon className="w-8 h-8" />}
+      {isOpen && <Cross1Icon className="sm:w-6 w-8" />}
+      {isOpen || <HamburgerMenuIcon className="sm:w-6 w-8" />}
     </div>
   );
 };
