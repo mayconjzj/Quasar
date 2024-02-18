@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { MediaPoster } from '@/components/MediaPoster';
-import { Skeleton } from '@/components/Skeleton';
+import { MediaPoster } from '@/components/ui/MediaPoster';
+import { Skeleton } from '@/components/ui/Skeleton';
 
 import { formatDate } from '@/lib/utils';
 

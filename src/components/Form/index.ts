@@ -1,5 +1,5 @@
 import { FormInput } from './FormInput';
-import { FormLabel } from './FormLabel/FormLabel';
+import { FormLabel } from './FormLabel';
 import { FormRoot } from './FormRoot';
 
 export const Form = {

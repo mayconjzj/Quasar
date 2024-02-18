@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
-import { Button } from '@/components/Button';
-import { MediaBackdrop } from '@/components/MediaBackdrop';
+import { Button } from '@/components/ui/Button';
+import { MediaBackdrop } from '@/components/ui/MediaBackdrop';
 
 import { firstDateYear } from '@/lib/utils';
 

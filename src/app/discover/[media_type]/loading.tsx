@@ -1,5 +1,5 @@
 import { List } from '@/components/List';
-import { Skeleton } from '@/components/Skeleton';
+import { Skeleton } from '@/components/ui/Skeleton';
 
 import * as S from './styles';
 

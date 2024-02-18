@@ -2,7 +2,7 @@ import { ChevronRightIcon } from '@radix-ui/react-icons';
 
 import { cn } from '@/lib/utils';
 
-import { PaginationLink } from '../PaginationLink';
+import { PaginationLink } from './PaginationLink';
 
 export const PaginationNext = ({
   className,

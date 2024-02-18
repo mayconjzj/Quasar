@@ -1,11 +1,17 @@
-import { useRouter } from 'next/navigation';
+'use client';
+
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { z } from 'zod';
 
-export const useSearchInput = () => {
+import { Form } from '@/components/Form';
+import { Button } from '@/components/ui/Button';
+
+export const SearchInput = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSearch = () => {
@@ -47,10 +53,26 @@ export const useSearchInput = () => {
     setIsOpen(false);
   });
 
-  return {
-    register,
-    redirectSearch,
-    isOpen,
-    toggleSearch
-  };
+  return (
+    <Form.Root
+      onSubmit={redirectSearch}
+      id="search-input"
+      className={`sm:justify-center sm:w-auto sm:ml-0 flex gap-x-1 items-center justify-end w-10 h-10 px-1 overflow-hidden ml-auto duration-150 ${isOpen && 'w-[300px]'}`}
+    >
+      <Form.Input
+        type="text"
+        placeholder="Pesquisar"
+        className="border-none shadow-none"
+        {...register('search')}
+      />
+
+      <Button
+        type="submit"
+        onClick={toggleSearch}
+        className="bg-transparent hover:bg-transparent shadow-none p-0"
+      >
+        <MagnifyingGlassIcon className="w-7 h-7" />
+      </Button>
+    </Form.Root>
+  );
 };

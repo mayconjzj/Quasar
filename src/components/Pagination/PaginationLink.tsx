@@ -1,4 +1,4 @@
-import { ButtonProps, buttonVariants } from '@/components/Button';
+import { ButtonProps, buttonVariants } from '@/components/ui/Button';
 
 import { cn } from '@/lib/utils';
 

@@ -1,6 +1,6 @@
 import { PaginationContent } from './PaginationContent';
 import { PaginationEllipsis } from './PaginationEllipsis';
-import { PaginationItem } from './paginationItem';
+import { PaginationItem } from './PaginationItem';
 import { PaginationLink } from './PaginationLink';
 import { PaginationLinks } from './PaginationLinks';
 import { PaginationNext } from './PaginationNext';
