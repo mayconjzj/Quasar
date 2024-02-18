@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { fetchSearch } from '@/services';
+import { fetchSearch } from '@/services/http/ApiCalls';
 
 import { PaginationLinks } from '@/components/PaginationLinks';
 import { Button } from '@/components/ui/Button';

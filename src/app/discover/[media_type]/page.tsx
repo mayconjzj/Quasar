@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
-import { fetchCollection, fetchTopRated } from '@/services';
+import { fetchCollection } from '@/services/http/CollectionApi';
+import { fetchTopRated } from '@/services/http/TopRatedApi';
 
 import { Button } from '@/components/ui/Button';
 import { List } from '@/components/ui/List';

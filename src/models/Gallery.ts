@@ -1,4 +1,4 @@
-import { MediaInfo } from '..';
+import { MediaInfo } from './MediaInfo';
 
 export type Gallery = {
   id: number;

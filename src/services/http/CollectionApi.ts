@@ -1,10 +1,6 @@
-import { Gallery } from '@/models';
+import { Gallery } from '@/models/Gallery';
 
-import {
-  fetchGenres,
-  fetchMediaByGenre,
-  fetchTrending
-} from '../ApiCalls/ApiCalls';
+import { fetchGenres, fetchMediaByGenre, fetchTrending } from './ApiCalls';
 
 export async function fetchCollection(mediaType: string) {
   const [dataTrendings, dataCategories] = await Promise.all([

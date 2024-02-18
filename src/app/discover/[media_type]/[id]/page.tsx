@@ -1,4 +1,4 @@
-import { fetchMediaDetails } from '@/services';
+import { fetchMediaDetails } from '@/services/http/ApiCalls';
 
 type MediaDetailsProps = {
   params: {

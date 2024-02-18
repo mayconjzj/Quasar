@@ -1,4 +1,4 @@
-import { fetchTrending, fetchMediaDetails } from '../ApiCalls/ApiCalls';
+import { fetchTrending, fetchMediaDetails } from './ApiCalls';
 
 export async function fetchTopRated(mediaType: string) {
   const trendings = await fetchTrending(mediaType);
