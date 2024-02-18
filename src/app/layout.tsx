@@ -2,7 +2,7 @@ import '@/styles/globals.css';
 
 import { Providers } from '@/contexts/Providers';
 
-import { Footer } from '@/components/Footer';
+import { Footer } from '@/components/ui/Footer';
 import { Header } from '@/components/Header';
 
 import { cn } from '@/lib/utils';
