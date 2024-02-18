@@ -18,8 +18,8 @@ export const ActiveLink = ({ children, ...rest }: ActiveLinkProps) => {
   return (
     <Link
       className={cn(
-        'hover:text-blue-500 duration-200 cursor-pointer',
-        isActive && 'text-blue-500',
+        'hover:text-primary duration-200 cursor-pointer',
+        isActive && 'text-primary',
         rest.className
       )}
       {...rest}

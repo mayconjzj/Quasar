@@ -29,10 +29,10 @@ export const MainNav = () => {
 
       <S.MainNavMobile is_open={isOpen.toString()} id="main-nav">
         <List.Root className="flex flex-col gap-2 font-bold">
-          <List.Item className="border-b-2 p-2">
+          <List.Item>
             <ActiveLink href="/discover/movies"> Filmes</ActiveLink>
           </List.Item>
-          <List.Item className="border-b-2 p-2">
+          <List.Item>
             <ActiveLink href="/discover/series">Séries</ActiveLink>
           </List.Item>
         </List.Root>

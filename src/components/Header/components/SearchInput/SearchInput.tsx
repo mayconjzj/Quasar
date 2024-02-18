@@ -26,7 +26,7 @@ export const SearchInput = () => {
       <Button
         type="submit"
         onClick={toggleSearch}
-        className="bg-transparent shadow-none p-0"
+        className="bg-transparent hover:bg-transparent shadow-none p-0"
       >
         <MagnifyingGlassIcon className="w-7 h-7" />
       </Button>

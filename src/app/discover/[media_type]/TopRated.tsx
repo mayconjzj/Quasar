@@ -51,7 +51,7 @@ export const TopRated = ({ dataTopRated, mediaType }: TopRatedProps) => {
         </S.ContentButton>
         <S.Item>
           <span className="font-bold">Gêneros: </span>
-          <span className="text-[#aaa]">
+          <span className="text-muted-foreground">
             {dataTopRated.genres?.map((genre) => genre.name).join(', ')}{' '}
           </span>
         </S.Item>
