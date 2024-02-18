@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 
 import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 
-import { List } from '@/components/List';
 import { ActiveLink } from '@/components/ui/ActiveLink';
+import { List } from '@/components/ui/List';
 
 export const MainNav = () => {
   const [isOpen, setIsOpenMenu] = useState(false);
@@ -45,18 +45,14 @@ export const MainNav = () => {
         </List.Root>
       </nav>
 
-      <div
-        onClick={handleClick}
-        title={title}
-        className={`md:hidden ${isOpen && 'z-10'}`}
-      >
+      <div onClick={handleClick} title={title} className={`md:hidden`}>
         {isOpen && <Cross1Icon className="w-7 h-7" />}
         {isOpen || <HamburgerMenuIcon className="w-7 h-7" />}
       </div>
 
       <nav
         id="main-nav"
-        className={`md:hidden invisible overflow-hidden fixed top-[70px] right-2 shadow-lg bg-background/90 p-4 w-44 h-44 opacity-0 duration-300 rounded-xl ${isOpen && 'visible overflow-auto opacity-100'}`}
+        className={`md:hidden fixed top-[70px] right-2 shadow-lg bg-background/90 p-4 w-44 h-44 duration-300 rounded-xl ${isOpen ? 'visible opacity-100' : 'invisible opacity-0'}`}
       >
         <List.Root className="flex flex-col gap-2 font-bold">
           <List.Item>

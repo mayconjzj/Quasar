@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-import { Logo, MainNav, SearchInput } from './Header/components';
+import { Logo } from './Logo';
+import { MainNav } from './MainNav';
+import { SearchInput } from './SearchInput';
 
 export const Header = () => {
   const [scrollActive, setScrollActive] = useState(false);

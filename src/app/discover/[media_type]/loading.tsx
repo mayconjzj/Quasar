@@ -1,18 +1,16 @@
-import { List } from '@/components/List';
+import { List } from '@/components/ui/List';
 import { Skeleton } from '@/components/ui/Skeleton';
-
-import * as S from './styles';
 
 export default function Loading() {
   const data = Array.from({ length: 10 }, (_, i) => i + 1);
 
   return (
-    <S.Container>
-      <S.TopRated>
+    <main>
+      <article className="h-[85vh] relative w-full text-foreground">
         <Skeleton className="w-full h-full" />
-      </S.TopRated>
-      <S.Collection>
-        <S.Content>
+      </article>
+      <section className="px-2 md:px-[30px]">
+        <div className="w-full my-[30px]">
           {data.map((i) => (
             <>
               <Skeleton key={i} className="w-[225px] h-8" />
@@ -25,8 +23,8 @@ export default function Loading() {
               </List.Root>
             </>
           ))}
-        </S.Content>
-      </S.Collection>
-    </S.Container>
+        </div>
+      </section>
+    </main>
   );
 }

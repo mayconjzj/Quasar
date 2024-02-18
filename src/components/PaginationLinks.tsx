@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Pagination } from '@/components/Pagination';
+import { Pagination } from '@/components/ui/Pagination';
 
 import { getPageLink } from '@/lib/utils';
 

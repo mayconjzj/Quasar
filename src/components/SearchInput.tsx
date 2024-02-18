@@ -1,6 +1,6 @@
 'use client';
 
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -8,8 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { z } from 'zod';
 
-import { Form } from '@/components/Form';
 import { Button } from '@/components/ui/Button';
+import { Form } from '@/components/ui/Form';
 
 export const SearchInput = () => {
   const [isOpen, setIsOpen] = useState(false);
