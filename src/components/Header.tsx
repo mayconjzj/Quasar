@@ -23,7 +23,7 @@ export const Header = () => {
     <header
       className={`placeholder:px-2 md:px-[30px] px-2 h-[70px] duration-300 fixed top-0 flex justify-between gap-2 w-screen items-center z-10 ${scrollActive && 'bg-background/90'}`}
     >
-      <Logo />
+      <Logo logo="Quasar" />
       <SearchInput />
       <MainNav
         items={[
