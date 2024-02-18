@@ -1,9 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
+import { useIsOpen } from '@/hooks/useIsOpen';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { z } from 'zod';
@@ -12,25 +12,7 @@ import { Button } from '@/components/ui/Button';
 import { Form } from '@/components/ui/Form';
 
 export const SearchInput = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSearch = () => {
-    setIsOpen((prevState) => !prevState);
-  };
-
-  useEffect(() => {
-    const handleClick = (event: MouseEvent) => {
-      const search = document.getElementById('search-input');
-
-      if (search && !search.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleClick);
-
-    return () => document.removeEventListener('click', handleClick);
-  }, []);
+  const { isOpen, setIsOpen, handleClick } = useIsOpen({ id: 'search-input' });
 
   const schema = z.object({
     search: z.string().min(1)
@@ -66,7 +48,7 @@ export const SearchInput = () => {
 
       <Button
         type="submit"
-        onClick={toggleSearch}
+        onClick={handleClick}
         className="bg-transparent hover:bg-transparent shadow-none p-0"
       >
         <MagnifyingGlassIcon className="w-7 h-7" />

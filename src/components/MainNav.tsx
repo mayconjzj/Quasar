@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
+import { useIsOpen } from '@/hooks/useIsOpen';
 import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 import { ActiveLink } from '@/components/ui/ActiveLink';
@@ -15,27 +14,7 @@ type MainNavProps = {
 };
 
 export const MainNav = ({ items }: MainNavProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const handleClick = () => {
-    setIsOpen((prevState) => !prevState);
-  };
-
-  useEffect(() => {
-    const handleClick = (event: MouseEvent) => {
-      const menu = document.getElementById('main-nav');
-
-      if (menu && !menu.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('click', handleClick);
-
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  });
+  const { isOpen, handleClick } = useIsOpen({ id: 'main-nav' });
 
   const title = isOpen ? 'Fechar' : 'Abrir';
 

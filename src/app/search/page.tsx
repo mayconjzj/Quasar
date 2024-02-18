@@ -26,10 +26,7 @@ export default async function Search({ searchParams }: SearchProps) {
   return (
     <main className="pt-[70px] pb-8 md:px-8 px-2 flex flex-col gap-4 max-w-[1200px] m-auto">
       <section className="w-full gap-4 flex flex-col">
-        <h1 className="text-3xl font-black text-center">
-          &quot;{searchParams.query}&quot; No Quasar
-        </h1>
-        <span className="font-bold">
+        <span className="font-medium">
           {searchResults.total_results} resultados para &quot;
           {searchParams.query}
           &quot;
