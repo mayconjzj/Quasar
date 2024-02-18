@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { cn } from '@/lib/utils';
 
-import { MediaInfo } from '@/models';
+import { MediaInfo } from '@/models/MediaInfo';
 
 type MediaPosterProps = {
   media: MediaInfo;

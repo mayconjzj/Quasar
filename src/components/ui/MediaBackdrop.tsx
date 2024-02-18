@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { MediaInfo } from '@/models';
+import { MediaInfo } from '@/models/MediaInfo';
 
 export const MediaBackdrop = ({
   dataTopRated
