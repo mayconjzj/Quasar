@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+
 import { fetchMediaDetails } from '@/services/http/ApiCalls';
 
 type MediaDetailsProps = {
@@ -14,7 +16,9 @@ export default async function MediaDetails({ params }: MediaDetailsProps) {
     <main className="mt-[70px]">
       <article>
         <div>
-          <h1>{dataMediaInfo?.title || dataMediaInfo?.name}</h1>
+          <Suspense fallback={<div>Loading...</div>}>
+            <h1>{dataMediaInfo?.title || dataMediaInfo?.name}</h1>
+          </Suspense>
         </div>
       </article>
     </main>
