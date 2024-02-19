@@ -14,6 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br" suppressHydrationWarning={true}>
+      <head>
+        <title>Quasar - Filmes e Séries</title>
+        <meta
+          name="description"
+          content="O destino essencial para descobrir e desfrutar de filmes e séries. Explore nossa vasta biblioteca e mergulhe em novas aventuras cinematográficas."
+        />
+      </head>
       <body className={cn('bg-background text-foreground antialiased')}>
         <Providers attribute="class" defaultTheme="dark">
           <Header />
