@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import { cn } from '@/lib/TailwindMerge';
 
-import { MediaInfo } from '@/models/MediaInfo';
+import { MediaInfo } from '@/@types/MediaInfo';
 
 type MediaPosterProps = {
   media: MediaInfo;

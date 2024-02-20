@@ -1,4 +1,4 @@
-import { Gallery } from '@/models/Gallery';
+import { Gallery } from '@/@types/Gallery';
 
 import { fetchGenres, fetchMediaByGenre, fetchTrending } from './ApiCalls';
 
