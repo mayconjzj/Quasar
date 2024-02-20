@@ -8,7 +8,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { z } from 'zod';
 
-import { Form } from '@/components/ui/Form';
+import { Button } from './ui/Button';
+import { Form } from './ui/Form';
 
 export const SearchInput = () => {
   const { isOpen, setIsOpen, handleClick } = useIsOpen({ id: 'search-input' });
@@ -45,14 +46,14 @@ export const SearchInput = () => {
         {...register('search')}
       />
 
-      <button
+      <Button
         type="submit"
         title="Pesquisar"
         onClick={handleClick}
-        className="bg-transparent hover:bg-transparent shadow-none p-0"
+        variant={'link'}
       >
         <MagnifyingGlassIcon className="w-7 h-7" />
-      </button>
+      </Button>
     </Form.Root>
   );
 };
