@@ -3,7 +3,7 @@ import '@/styles/globals.css';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/TailwindMerge';
 
 import { Providers } from './Providers';
 

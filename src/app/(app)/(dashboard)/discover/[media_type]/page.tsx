@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import { List } from '@/components/ui/List';
 import { Skeleton } from '@/components/ui/Skeleton';
 
-import { Collection } from './collection';
-import { TopRated } from './top-rated';
+import { Collection } from './Collection';
+import { TopRated } from './TopRated';
 
 type DiscoverProps = {
   params: {

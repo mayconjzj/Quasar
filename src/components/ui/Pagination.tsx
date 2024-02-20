@@ -6,7 +6,7 @@ import { ChevronLeftIcon } from '@radix-ui/react-icons';
 
 import { ButtonProps, buttonVariants } from '@/components/ui/Button';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/TailwindMerge';
 
 const PaginationRoot = ({
   className,
