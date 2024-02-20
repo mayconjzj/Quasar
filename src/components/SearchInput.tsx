@@ -47,6 +47,7 @@ export const SearchInput = () => {
 
       <button
         type="submit"
+        title="Pesquisar"
         onClick={handleClick}
         className="bg-transparent hover:bg-transparent shadow-none p-0"
       >
