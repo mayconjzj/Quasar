@@ -6,11 +6,7 @@ import { List } from '@/components/ui/List';
 import { MediaPoster } from '@/components/ui/MediaPoster';
 import { Skeleton } from '@/components/ui/Skeleton';
 
-export const CollectionContent = async ({
-  mediaType
-}: {
-  mediaType: string;
-}) => {
+export const Collection = async ({ mediaType }: { mediaType: string }) => {
   const collection = await fetchCollection(mediaType);
 
   return (

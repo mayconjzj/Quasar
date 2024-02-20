@@ -7,7 +7,7 @@ import { MediaBackdrop } from '@/components/ui/MediaBackdrop';
 
 import { firstDateYear } from '@/lib/utils';
 
-export const TopRatedContent = async ({ mediaType }: { mediaType: string }) => {
+export const TopRated = async ({ mediaType }: { mediaType: string }) => {
   const topRated = await fetchTopRated(mediaType);
 
   return (
