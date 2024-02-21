@@ -6,6 +6,8 @@ import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 import { ActiveLink } from '@/components/ui/ActiveLink';
 import { List } from '@/components/ui/List';
 
+import { Button } from './ui/Button';
+
 type MainNavProps = {
   items: {
     name: string;
@@ -30,14 +32,16 @@ export const MainNav = ({ items }: MainNavProps) => {
         </List.Root>
       </nav>
 
-      <div
+      <Button
         title={title}
         onClick={handleClick}
-        className={`md:hidden cursor-pointer`}
+        variant={'link'}
+        size={'icon'}
+        className="md:hidden"
       >
         {isOpen && <Cross1Icon className="w-7 h-7" />}
         {isOpen || <HamburgerMenuIcon className="w-7 h-7" />}
-      </div>
+      </Button>
 
       <nav
         id="main-nav"

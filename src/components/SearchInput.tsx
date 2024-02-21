@@ -49,8 +49,9 @@ export const SearchInput = () => {
       <Button
         type="submit"
         title="Pesquisar"
-        onClick={handleClick}
         variant={'link'}
+        size={'icon'}
+        onClick={handleClick}
       >
         <MagnifyingGlassIcon className="w-7 h-7" />
       </Button>
