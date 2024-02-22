@@ -5,7 +5,7 @@ import { fetchTopRated } from '@/services/http/TopRatedApi';
 import { Button } from '@/components/ui/Button';
 import { MediaBackdrop } from '@/components/ui/MediaBackdrop';
 
-import { firstDateYear } from '@/utils/firstDateYear';
+import { firstDateYear } from '@/utils/FirstDateYear';
 
 export const TopRated = async ({ mediaType }: { mediaType: string }) => {
   const topRated = await fetchTopRated(mediaType);

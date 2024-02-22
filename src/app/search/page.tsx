@@ -8,7 +8,7 @@ import { MediaPoster } from '@/components/ui/MediaPoster';
 import { Pagination } from '@/components/ui/Pagination';
 import { Skeleton } from '@/components/ui/Skeleton';
 
-import { formatDate } from '@/utils/formatDate';
+import { formatDate } from '@/utils/FormatDate';
 
 export type SearchProps = {
   searchParams: {
