@@ -18,6 +18,7 @@ export default async function MediaDetails({ params }: MediaDetailsProps) {
         <div>
           <Suspense fallback={<div>Loading...</div>}>
             <h1>{dataMediaInfo?.title || dataMediaInfo?.name}</h1>
+            <p>{dataMediaInfo?.overview}</p>
           </Suspense>
         </div>
       </article>
