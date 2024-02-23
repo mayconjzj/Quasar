@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Pagination } from '@/components/ui/Pagination';
 
-import { getPageLink } from '@/utils/getPageLink';
+import { getPageLink } from '@/utils/GetPageLink';
 
 type PaginationLinksProps = {
   currentPage: number;
