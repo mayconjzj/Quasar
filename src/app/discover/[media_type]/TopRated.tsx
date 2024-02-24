@@ -40,9 +40,9 @@ export const TopRated = async ({ mediaType }: { mediaType: string }) => {
 
         <p className="max-w-[600px] line-clamp-3">{topRated.overview}</p>
         <div className="flex gap-2">
-          <Link href={`/discover/${mediaType}/${topRated.id}`}>
-            <Button>Detalhes</Button>
-          </Link>
+          <Button asChild>
+            <Link href={`/discover/${mediaType}/${topRated.id}`}>Detalhes</Link>
+          </Button>
         </div>
         <div>
           <span className="font-bold">Gêneros: </span>
