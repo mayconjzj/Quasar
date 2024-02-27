@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 
 import { Footer } from '@/components/Footer';
-import { Header } from '@/components/Header';
+import { Header } from '@/components/ui/Header';
 
 import { cn } from '@/lib/TailwindMerge';
 
@@ -23,7 +23,9 @@ export default function RootLayout({
       </head>
       <body className={cn('bg-background text-foreground antialiased')}>
         <Providers attribute="class" defaultTheme="dark">
-          <Header />
+          <Header.Root>
+            <Header.Logo logo="Quasar" />
+          </Header.Root>
           {children}
           <Footer />
         </Providers>

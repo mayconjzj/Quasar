@@ -1,21 +1,62 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+
 import { useIsOpen } from '@/hooks/useIsOpen';
 import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 import { ActiveLink } from '@/components/ui/ActiveLink';
+import { Button } from '@/components/ui/Button';
 import { List } from '@/components/ui/List';
 
-import { Button } from './ui/Button';
+import { cn } from '@/lib/TailwindMerge';
 
-type MainNavProps = {
+export type HeaderProps = {
+  children: React.ReactNode;
+  className?: string;
+};
+
+const HeaderRoot = ({ children, className }: HeaderProps) => {
+  const [scrollActive, setScrollActive] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      window.scrollY > 0 ? setScrollActive(true) : setScrollActive(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={cn(
+        `placeholder:px-2 md:px-[30px] px-2 h-[70px] duration-300 fixed top-0 flex justify-between gap-2 w-screen items-center z-10 ${scrollActive && 'bg-background/90'}`,
+        className
+      )}
+    >
+      {children}
+    </header>
+  );
+};
+
+type HeaderLogoProps = {
+  logo: string;
+};
+
+const HeaderLogo = ({ logo }: HeaderLogoProps) => {
+  return <h1 className={cn('text-3xl font-black text-primary')}>{logo}</h1>;
+};
+
+type HeaderMainNavProps = {
   items: {
     name: string;
     href: string;
   }[];
 };
 
-export const MainNav = ({ items }: MainNavProps) => {
+const HeaderMainNav = ({ items }: HeaderMainNavProps) => {
   const { isOpen, handleClick } = useIsOpen({ id: 'main-nav' });
 
   const title = isOpen ? 'Fechar' : 'Abrir';
@@ -57,4 +98,10 @@ export const MainNav = ({ items }: MainNavProps) => {
       </nav>
     </>
   );
+};
+
+export const Header = {
+  Root: HeaderRoot,
+  Logo: HeaderLogo,
+  MainNav: HeaderMainNav
 };
