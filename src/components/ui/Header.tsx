@@ -1,12 +1,19 @@
-'use client';
-
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { useIsOpen } from '@/hooks/useIsOpen';
-import { Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
+import { zodResolver } from '@hookform/resolvers/zod';
+import {
+  Cross1Icon,
+  HamburgerMenuIcon,
+  MagnifyingGlassIcon
+} from '@radix-ui/react-icons';
+import { z } from 'zod';
 
 import { ActiveLink } from '@/components/ui/ActiveLink';
 import { Button } from '@/components/ui/Button';
+import { Form } from '@/components/ui/Form';
 import { List } from '@/components/ui/List';
 
 import { cn } from '@/lib/TailwindMerge';
@@ -100,8 +107,57 @@ const HeaderMainNav = ({ items }: HeaderMainNavProps) => {
   );
 };
 
+const SearchInput = () => {
+  const { isOpen, setIsOpen, handleClick } = useIsOpen({ id: 'search-input' });
+
+  const schema = z.object({
+    search: z.string().min(1)
+  });
+
+  const { register, handleSubmit, getValues, setValue } = useForm({
+    resolver: zodResolver(schema)
+  });
+
+  const { push } = useRouter();
+
+  const redirectSearch = handleSubmit(() => {
+    const { search } = getValues() as {
+      search: string;
+    };
+    push(`/search?query=${search}&page=1`);
+    setValue('search', '');
+    setIsOpen(false);
+  });
+
+  return (
+    <Form.Root
+      onSubmit={redirectSearch}
+      id="search-input"
+      className={`sm:justify-center sm:w-auto sm:ml-0 flex gap-x-1 items-center justify-end w-10 h-10 px-1 overflow-hidden ml-auto duration-150 ${isOpen && 'w-[300px]'}`}
+    >
+      <Form.Input
+        type="text"
+        placeholder="Pesquisar"
+        className="border-none shadow-none"
+        {...register('search')}
+      />
+
+      <Button
+        type="submit"
+        title="Pesquisar"
+        variant={'link'}
+        size={'icon'}
+        onClick={handleClick}
+      >
+        <MagnifyingGlassIcon className="w-7 h-7" />
+      </Button>
+    </Form.Root>
+  );
+};
+
 export const Header = {
   Root: HeaderRoot,
   Logo: HeaderLogo,
-  MainNav: HeaderMainNav
+  MainNav: HeaderMainNav,
+  SearchInput: SearchInput
 };

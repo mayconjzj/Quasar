@@ -1,3 +1,5 @@
+'use client';
+
 import '@/styles/globals.css';
 
 import { Footer } from '@/components/Footer';
@@ -25,6 +27,19 @@ export default function RootLayout({
         <Providers attribute="class" defaultTheme="dark">
           <Header.Root>
             <Header.Logo logo="Quasar" />
+            <Header.SearchInput />
+            <Header.MainNav
+              items={[
+                {
+                  name: 'Filmes',
+                  href: '/discover/movies'
+                },
+                {
+                  name: 'Séries',
+                  href: '/discover/series'
+                }
+              ]}
+            />
           </Header.Root>
           {children}
           <Footer />
