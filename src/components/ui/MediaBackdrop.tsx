@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
-import { MediaInfo } from '@/@types/MediaDetails';
+import { MediaDetails } from '@/@types/MediaDetails';
 
 export const MediaBackdrop = ({
   dataTopRated
 }: {
-  dataTopRated: MediaInfo;
+  dataTopRated: MediaDetails;
 }) => {
   return (
     <Image
