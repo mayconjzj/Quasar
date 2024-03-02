@@ -4,7 +4,7 @@ import { MediaInfo } from '@/@types/MediaInfo';
 
 import { cn } from '@/lib/TailwindMerge';
 
-type MediaPosterProps = {
+export type MediaPosterProps = {
   media: MediaInfo;
   className?: string;
 };

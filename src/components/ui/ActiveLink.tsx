@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { cn } from '@/lib/TailwindMerge';
 
-type ActiveLinkProps = {
+export type ActiveLinkProps = {
   href: string;
   children: React.ReactNode;
   className?: string;

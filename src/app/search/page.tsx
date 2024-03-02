@@ -1,11 +1,10 @@
 import Link from 'next/link';
 
+import { PaginationLinks } from '@/app/search/PaginationLinks';
 import { fetchSearch } from '@/services/http/ApiCalls';
 
-import { PaginationLinks } from '@/components/PaginationLinks';
 import { Button } from '@/components/ui/Button';
 import { MediaPoster } from '@/components/ui/MediaPoster';
-import { Pagination } from '@/components/ui/Pagination';
 import { Skeleton } from '@/components/ui/Skeleton';
 
 import { formatDate } from '@/utils/FormatDate';
@@ -83,15 +82,11 @@ export default async function Search({ searchParams }: SearchProps) {
             </div>
           </div>
         ))}
-        <Pagination.Root>
-          <Pagination.Content>
-            <PaginationLinks
-              currentPage={searchResults.page}
-              totalPages={searchResults.total_pages}
-              endpoint={`/search?query=${searchParams.query}`}
-            />
-          </Pagination.Content>
-        </Pagination.Root>
+        <PaginationLinks
+          currentPage={searchResults.page}
+          totalPages={searchResults.total_pages}
+          endpoint={`/search?query=${searchParams.query}`}
+        />
       </section>
     </main>
   );

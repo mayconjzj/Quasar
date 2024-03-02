@@ -70,5 +70,9 @@ export const PaginationLinks: React.FC<PaginationLinksProps> = ({
     );
   }
 
-  return <>{links}</>;
+  return (
+    <Pagination.Root>
+      <Pagination.Content>{links}</Pagination.Content>
+    </Pagination.Root>
+  );
 };
