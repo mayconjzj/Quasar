@@ -45,7 +45,11 @@ export default async function Search({ searchParams }: SearchProps) {
           >
             {result.poster_path && (
               <Link href={`/discover/${result.media_type}/${result.id}`}>
-                <MediaPoster className="scale-100" media={result} />
+                <MediaPoster
+                  className="scale-100"
+                  alt={result.title || result.name}
+                  posterPath={result.poster_path}
+                />
               </Link>
             )}
             {!result.poster_path && (
