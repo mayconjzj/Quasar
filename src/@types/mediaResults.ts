@@ -1,4 +1,4 @@
-import { MediaInfo } from './MediaInfo';
+import { MediaInfo } from './MediaDetails';
 
 export type MediaResults = {
   page: number;

@@ -1,4 +1,4 @@
-export type MediaInfo = {
+export type MediaDetails = {
   title: string;
   name: string;
   original_name: string;

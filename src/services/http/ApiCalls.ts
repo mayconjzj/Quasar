@@ -1,5 +1,6 @@
 import { Genres } from '@/@types/Genres';
-import { MediaInfo } from '@/@types/MediaInfo';
+import { MediaCredits } from '@/@types/MediaCreditis';
+import { MediaDetails } from '@/@types/MediaDetails';
 import { MediaResults } from '@/@types/mediaResults';
 import { api } from '@/services/api';
 
@@ -18,7 +19,20 @@ export const fetchMediaByGenre = async (mediaType: string, genreId: number) => {
 };
 
 export const fetchMediaDetails = async (mediaType: string, mediaId: number) => {
-  return (await api.get(`/${mediaType}/${mediaId}`)) as MediaInfo;
+  const fetchDetails = async () =>
+    (await api.get(`/${mediaType}/${mediaId}`)) as MediaDetails;
+  const fetchCredits = async () =>
+    (await api.get(`/${mediaType}/${mediaId}/credits`)) as MediaCredits;
+
+  const [details, credits] = await Promise.all([
+    fetchDetails(),
+    fetchCredits()
+  ]);
+
+  return {
+    ...details,
+    credits: credits
+  };
 };
 
 export const fetchSearch = async (query: string, page: string) => {

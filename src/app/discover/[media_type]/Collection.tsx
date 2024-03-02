@@ -18,7 +18,12 @@ export const Collection = async ({ mediaType }: { mediaType: string }) => {
             {genre.media.map((media) => (
               <List.Item key={media.id}>
                 <Link href={`/discover/${mediaType}/${media.id}`}>
-                  {media.poster_path && <MediaPoster media={media} />}
+                  {media.poster_path && (
+                    <MediaPoster
+                      alt={media.title || media.name}
+                      posterPath={media.poster_path}
+                    />
+                  )}
                   {!media.poster_path && (
                     <Skeleton className="min-w-[150px] h-[225px] scale-90" />
                   )}
