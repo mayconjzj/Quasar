@@ -11,12 +11,12 @@ export const TopRated = async ({ mediaType }: { mediaType: string }) => {
   const topRated = await fetchTopRated(mediaType);
 
   return (
-    <article className="h-[85vh] relative w-full text-foreground">
+    <article className="h-[85vh] relative w-full p-2 md:px-[30px] text-foreground">
       <MediaBackdrop dataTopRated={topRated} />
       <div className="absolute inset-0 bg-gradient-to-b to-background/100 from-transparent" />
       <div className="absolute inset-0 bg-gradient-to-r from-background/100 to-transparent" />
 
-      <div className="absolute flex flex-col gap-3 p-2 md:px-[30px] h-full justify-end md:justify-center">
+      <div className="absolute flex flex-col gap-3 h-full justify-end md:justify-center">
         <h1 className="font-bold text-5xl line-clamp-2">
           {topRated?.title || topRated?.name}
         </h1>
