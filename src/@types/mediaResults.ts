@@ -1,8 +1,8 @@
-import { MediaInfo } from './MediaDetails';
+import { MediaDetails } from './MediaDetails';
 
 export type MediaResults = {
   page: number;
-  results: MediaInfo[];
+  results: MediaDetails[];
   total_pages: number;
   total_results: number;
 };
