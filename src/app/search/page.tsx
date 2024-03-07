@@ -55,7 +55,6 @@ export default async function Search({ searchParams }: SearchProps) {
             {!result.poster_path && (
               <Skeleton className="min-w-[150px] min-h-[225px]" />
             )}
-
             <div className="flex flex-col gap-1 h-[200px] m-auto relative w-full">
               <Link href={`/discover/${result.media_type}/${result.id}`}>
                 <h2 className="font-bold text-xl line-clamp-1">

@@ -23,7 +23,7 @@ export const HeaderRoot = ({ children, className }: HeaderProps) => {
   return (
     <header
       className={cn(
-        `placeholder:px-2 md:px-[30px] px-2 h-[70px] duration-300 fixed top-0 flex justify-between gap-2 w-screen items-center z-10 ${scrollActive && 'bg-background/90'}`,
+        `placeholder:px-2 md:px-[30px] px-2 h-[70px] duration-500 fixed top-0 flex justify-between gap-2 w-screen items-center z-10 ${scrollActive && 'bg-background/50 backdrop-blur-lg'}`,
         className
       )}
     >

@@ -4,6 +4,7 @@ export type MediaCredit = {
   character: string;
   credit_id: string;
   profile_path: string;
+  job: string;
 };
 
 export type MediaCredits = {

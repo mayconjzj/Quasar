@@ -20,6 +20,7 @@ export const Collection = async ({ mediaType }: { mediaType: string }) => {
                 <Link href={`/discover/${mediaType}/${media.id}`}>
                   {media.poster_path && (
                     <MediaPoster
+                      className="object-cover min-w-[150px] h-[225px] scale-90 hover:scale-100 duration-200"
                       alt={media.title || media.name}
                       posterPath={media.poster_path}
                     />
