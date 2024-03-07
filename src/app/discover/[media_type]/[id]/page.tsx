@@ -49,7 +49,7 @@ export default async function MediaDetails({ params }: MediaDetailsProps) {
               `${dataMediaInfo.number_of_seasons} temporadas`}
           </div>
         </div>
-        <p className="max-w-[600px] line-clamp-3">{dataMediaInfo.overview}</p>
+        <p className="max-w-[600px]">{dataMediaInfo.overview}</p>
         <div>
           <span className="font-bold">Gêneros: </span>
           <span className="text-muted-foreground">
