@@ -14,7 +14,7 @@ export default function NotFound() {
       <p className="text-center text-muted-foreground">
         Página não encontrada!
       </p>
-      <p className="text-center text-muted-foreground w-[500px] mt-2">
+      <p className="text-center text-muted-foreground max-w-[500px] mt-2">
         {curiosidades[Math.floor(Math.random() * curiosidades.length)]}
       </p>
     </main>
