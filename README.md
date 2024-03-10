@@ -1,10 +1,10 @@
-# CinéMágico
+# Quasar
 
-Bem-vindo ao CinéMágico, sua plataforma de streaming para filmes e séries!
+Bem-vindo ao Quasar, sua plataforma de busca para filmes e séries!
 
 ## Descrição
 
-CinéMágico é um serviço de streaming que oferece uma ampla variedade de filmes e séries para os amantes do entretenimento. Explore um vasto catálogo, assista aos seus filmes favoritos e descubra novas séries emocionantes.
+Quasar é um serviço de oferece uma ampla variedade de dados sobre filmes e séries para os amantes do entretenimento. Explore um vasto catálogo, veja os detalhes aos seus filmes favoritos e descubra novas séries emocionantes.
 
 ## Funcionalidades
 
@@ -34,4 +34,4 @@ Este projeto é licenciado sob a [Licença MIT](LICENSE).
 
 ---
 
-Divirta-se assistindo aos filmes e séries no CinéMágico! 🎬✨
+Divirta-se com os filmes e séries no Quasar! 🎬✨
