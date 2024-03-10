@@ -1,9 +1,7 @@
-'use client';
-
 import '@/styles/globals.css';
 
 import { Footer } from '@/components/Footer';
-import { Header } from '@/components/ui/Header';
+import { Header } from '@/components/Header';
 
 import { cn } from '@/lib/TailwindMerge';
 
@@ -25,22 +23,7 @@ export default function RootLayout({
       </head>
       <body className={cn('bg-background text-foreground antialiased')}>
         <Providers attribute="class" defaultTheme="dark">
-          <Header.Root>
-            <Header.Logo logo="Quasar" />
-            <Header.SearchInput />
-            <Header.MainNav
-              items={[
-                {
-                  name: 'Filmes',
-                  href: '/discover/movies'
-                },
-                {
-                  name: 'Séries',
-                  href: '/discover/series'
-                }
-              ]}
-            />
-          </Header.Root>
+          <Header />
           {children}
           <Footer />
         </Providers>

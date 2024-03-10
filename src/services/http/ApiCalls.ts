@@ -19,20 +19,11 @@ export const fetchMediaByGenre = async (mediaType: string, genreId: number) => {
 };
 
 export const fetchMediaDetails = async (mediaType: string, mediaId: number) => {
-  const fetchDetails = async () =>
-    (await api.get(`/${mediaType}/${mediaId}`)) as MediaDetails;
-  const fetchCredits = async () =>
-    (await api.get(`/${mediaType}/${mediaId}/credits`)) as MediaCredits;
+  return (await api.get(`/${mediaType}/${mediaId}`)) as MediaDetails;
+};
 
-  const [details, credits] = await Promise.all([
-    fetchDetails(),
-    fetchCredits()
-  ]);
-
-  return {
-    ...details,
-    credits: credits
-  };
+export const fetchMediaCredits = async (mediaType: string, mediaId: number) => {
+  return (await api.get(`/${mediaType}/${mediaId}/credits`)) as MediaCredits;
 };
 
 export const fetchSearch = async (query: string, page: string) => {
