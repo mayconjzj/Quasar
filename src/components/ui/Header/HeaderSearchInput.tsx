@@ -12,12 +12,12 @@ import { Form } from '@/components/ui/Form';
 export const HeaderSearchInput = () => {
   const { isOpen, setIsOpen, handleClick } = useIsOpen({ id: 'search-input' });
 
-  const schema = z.object({
+  const searchFormSchema = z.object({
     search: z.string().min(1)
   });
 
   const { register, handleSubmit, getValues, setValue } = useForm({
-    resolver: zodResolver(schema)
+    resolver: zodResolver(searchFormSchema)
   });
 
   const { push } = useRouter();
