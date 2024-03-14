@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 
 import { Collection } from './Collection';
-import { LoadingCollection } from './loadingCollection';
+import { LoadingCollection } from './LoadingCollection';
 import { LoadingTopRated } from './LoadingTopRated';
 import { TopRated } from './TopRated';
 
