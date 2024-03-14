@@ -33,7 +33,10 @@ export const PaginationLinks: React.FC<PaginationLinksProps> = ({
   if (currentPage > 1) {
     links.push(
       <Pagination.Item key="prev">
-        <Pagination.Previous href={getPageLink(endpoint, currentPage - 1)} />
+        <Pagination.Previous
+          className="hidden sm:flex"
+          href={getPageLink(endpoint, currentPage - 1)}
+        />
       </Pagination.Item>
     );
   }
@@ -65,7 +68,10 @@ export const PaginationLinks: React.FC<PaginationLinksProps> = ({
   if (currentPage < totalPages) {
     links.push(
       <Pagination.Item key="next">
-        <Pagination.Next href={getPageLink(endpoint, currentPage + 1)} />
+        <Pagination.Next
+          className="hidden sm:flex"
+          href={getPageLink(endpoint, currentPage + 1)}
+        />
       </Pagination.Item>
     );
   }
