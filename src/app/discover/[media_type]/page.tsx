@@ -1,11 +1,8 @@
 import { Suspense } from 'react';
 
-import { List } from '@/components/ui/List';
-import { Skeleton } from '@/components/ui/Skeleton';
-
-import { createArray } from '@/utils/createArray';
-
 import { Collection } from './Collection';
+import { LoadingCollection } from './loadingCollection';
+import { LoadingTopRated } from './LoadingTopRated';
 import { TopRated } from './TopRated';
 
 type DiscoverProps = {
@@ -19,35 +16,10 @@ export default async function Discover({ params }: DiscoverProps) {
 
   return (
     <main>
-      <Suspense
-        fallback={
-          <article className="h-[85vh] relative w-full text-foreground">
-            <Skeleton className="w-full h-full" />
-          </article>
-        }
-      >
+      <Suspense fallback={<LoadingTopRated />}>
         <TopRated mediaType={mediaType} />
       </Suspense>
-      <Suspense
-        fallback={
-          <section className="px-2 md:px-[30px]">
-            <div className="w-full my-[30px]">
-              {createArray(10).map((i) => (
-                <>
-                  <Skeleton key={i} className="w-[225px] h-8" />
-                  <List.Root className="flex overflow-auto">
-                    {createArray(10).map((i) => (
-                      <List.Item key={i} className="min-w-[150px] h-[225px]">
-                        <Skeleton className="min-w-[150px] h-[225px] scale-90" />
-                      </List.Item>
-                    ))}
-                  </List.Root>
-                </>
-              ))}
-            </div>
-          </section>
-        }
-      >
+      <Suspense fallback={<LoadingCollection />}>
         <Collection mediaType={mediaType} />
       </Suspense>
     </main>
