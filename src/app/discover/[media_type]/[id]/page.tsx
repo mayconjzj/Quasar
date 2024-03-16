@@ -3,9 +3,11 @@ import { Suspense } from 'react';
 import { LoadingBackdrop } from './LoadingBackdrop';
 import { LoadingCredits } from './LoadingCredits';
 import { LoadingMediaDetails } from './LoadingMediaDetails';
+import { LoadingMediaTrailers } from './LoadingMediaTrailers';
 import { MediaBackdrop } from './MediaBackdrop';
 import { MediaCredits } from './MediaCredits';
 import { MediaDetails } from './MediaDetails';
+import { MediaTrailers } from './MediaTrailers';
 
 export type MediaInfoProps = {
   params: {
@@ -26,6 +28,9 @@ export default async function MediaInfo({ params }: MediaInfoProps) {
         </Suspense>
         <Suspense fallback={<LoadingCredits />}>
           <MediaCredits params={params} />
+        </Suspense>
+        <Suspense fallback={<LoadingMediaTrailers />}>
+          <MediaTrailers params={params} />
         </Suspense>
       </article>
     </main>

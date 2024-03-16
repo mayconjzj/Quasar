@@ -2,6 +2,7 @@ import { Genres } from '@/@types/Genres';
 import { MediaCredits } from '@/@types/MediaCreditis';
 import { MediaDetails } from '@/@types/MediaDetails';
 import { MediaResults } from '@/@types/mediaResults';
+import { MediaTrailers } from '@/@types/MediaTrailers';
 import { api } from '@/services/api';
 
 export const fetchTrending = async (mediaType: string) => {
@@ -24,6 +25,13 @@ export const fetchMediaDetails = async (mediaType: string, mediaId: number) => {
 
 export const fetchMediaCredits = async (mediaType: string, mediaId: number) => {
   return (await api.get(`/${mediaType}/${mediaId}/credits`)) as MediaCredits;
+};
+
+export const fetchMediaTrailers = async (
+  mediaType: string,
+  mediaId: number
+) => {
+  return (await api.get(`/${mediaType}/${mediaId}/videos`)) as MediaTrailers;
 };
 
 export const fetchSearch = async (query: string, page: string) => {
