@@ -19,7 +19,10 @@ export const MediaTrailers = async ({
           </h2>
           <div className="flex gap-x-3 overflow-auto">
             {dataMediaTrailers?.results?.map((trailer) => (
-              <div key={trailer.id} className="min-w-[400px] h-[225px]">
+              <div
+                key={trailer.id}
+                className="min-w-[400px] h-[225px] scale-95"
+              >
                 <iframe
                   className="w-full h-full aspect-video"
                   src={`https://www.youtube.com/embed/${trailer.key}`}
