@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { PaginationLinks } from '@/app/search/PaginationLinks';
 import { fetchSearch } from '@/services/http/ApiCalls';
 
@@ -9,6 +11,11 @@ export type SearchProps = {
     query: string;
     page: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: 'Pesquisa',
+  description: 'Pesquise por filmes e séries'
 };
 
 export default async function Search({ searchParams }: SearchProps) {
