@@ -26,11 +26,25 @@ export const generateMetadata = async ({ params }: MediaInfoProps) => {
     description: dataMediaInfo.overview,
     openGraph: {
       title: `Detalhes ${dataMediaInfo.title || dataMediaInfo.name}`,
-      description: dataMediaInfo.overview
+      description: dataMediaInfo.overview,
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/w1280${dataMediaInfo.backdrop_path}`,
+          width: 1200,
+          height: 630
+        }
+      ]
     },
     twitter: {
       title: `Detalhes ${dataMediaInfo.title || dataMediaInfo.name}`,
-      description: dataMediaInfo.overview
+      description: dataMediaInfo.overview,
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_TMDB_IMAGE_URL}/${dataMediaInfo.backdrop_path}`,
+          width: 1200,
+          height: 630
+        }
+      ]
     }
   };
 };
