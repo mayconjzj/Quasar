@@ -11,6 +11,15 @@ type DiscoverProps = {
   };
 };
 
+export const generateMetadata = ({ params }: DiscoverProps) => {
+  const mediaType = params.media_type === 'series' ? 'Séries' : 'Filmes';
+
+  return {
+    title: `${mediaType}`,
+    description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`
+  };
+};
+
 export default async function Discover({ params }: DiscoverProps) {
   const mediaType = params.media_type === 'series' ? 'tv' : 'movie';
 

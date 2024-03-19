@@ -49,14 +49,6 @@ export const metadata: Metadata = {
   },
   authors: [{ name: 'Maycon Douglas', url: 'https://github.com/mayconjzj' }],
   category: 'Filmes e Séries',
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true
-    }
-  },
   verification: {
     google: 'TxSfWovss5wRRrEt5OcWFHccbCtavJrUE9BnnYbOPzw'
   }

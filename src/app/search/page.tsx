@@ -11,12 +11,12 @@ export type SearchProps = {
   };
 };
 
-export function generateMetadata({ searchParams }: SearchProps) {
+export const generateMetadata = ({ searchParams }: SearchProps) => {
   return {
     title: `Pesquisa ${searchParams.query || ''}`,
     description: `${searchParams.query && `Procurando no Quasar por: ${searchParams.query}`}`
   };
-}
+};
 
 export default async function Search({ searchParams }: SearchProps) {
   const searchResults = await fetchSearch(

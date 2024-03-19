@@ -1,5 +1,7 @@
 import { Suspense } from 'react';
 
+import { fetchMediaDetails } from '@/services/http/ApiCalls';
+
 import { LoadingBackdrop } from './LoadingBackdrop';
 import { LoadingCredits } from './LoadingCredits';
 import { LoadingMediaDetails } from './LoadingMediaDetails';
@@ -13,6 +15,15 @@ export type MediaInfoProps = {
   params: {
     id: number;
     media_type: string;
+  };
+};
+
+export const generateMetadata = async ({ params }: MediaInfoProps) => {
+  const dataMediaInfo = await fetchMediaDetails(params.media_type, params.id);
+
+  return {
+    title: `Detalhes ${dataMediaInfo.title || dataMediaInfo.name}`,
+    description: dataMediaInfo.overview
   };
 };
 
