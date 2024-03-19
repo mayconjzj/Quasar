@@ -23,7 +23,15 @@ export const generateMetadata = async ({ params }: MediaInfoProps) => {
 
   return {
     title: `Detalhes ${dataMediaInfo.title || dataMediaInfo.name}`,
-    description: dataMediaInfo.overview
+    description: dataMediaInfo.overview,
+    openGraph: {
+      title: `Detalhes ${dataMediaInfo.title || dataMediaInfo.name}`,
+      description: dataMediaInfo.overview
+    },
+    twitter: {
+      title: `Detalhes ${dataMediaInfo.title || dataMediaInfo.name}`,
+      description: dataMediaInfo.overview
+    }
   };
 };
 

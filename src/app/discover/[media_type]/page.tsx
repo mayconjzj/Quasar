@@ -16,7 +16,15 @@ export const generateMetadata = ({ params }: DiscoverProps) => {
 
   return {
     title: `${mediaType}`,
-    description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`
+    description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`,
+    openGraph: {
+      title: `${mediaType}`,
+      description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`
+    },
+    twitter: {
+      title: `${mediaType}`,
+      description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`
+    }
   };
 };
 

@@ -14,7 +14,15 @@ export type SearchProps = {
 export const generateMetadata = ({ searchParams }: SearchProps) => {
   return {
     title: `Pesquisa ${searchParams.query || ''}`,
-    description: `${searchParams.query && `Procurando no Quasar por: ${searchParams.query}`}`
+    description: `${searchParams.query && `Procurando no Quasar por: ${searchParams.query}`}`,
+    openGraph: {
+      title: `Pesquisa ${searchParams.query || ''}`,
+      description: `${searchParams.query && `Procurando no Quasar por: ${searchParams.query}`}`
+    },
+    twitter: {
+      title: `Pesquisa ${searchParams.query || ''}`,
+      description: `${searchParams.query && `Procurando no Quasar por: ${searchParams.query}`}`
+    }
   };
 };
 
