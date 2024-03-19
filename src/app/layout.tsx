@@ -12,7 +12,11 @@ import { cn } from '@/lib/TailwindMerge';
 import { Providers } from './Providers';
 
 export const metadata: Metadata = {
-  title: 'Quasar - Filmes e Séries',
+  title: {
+    default: 'Quasar - Filmes e Séries',
+    template: '%s | Quasar',
+    absolute: 'Quasar - Filmes e Séries'
+  },
   description:
     'O destino essencial para descobrir e desfrutar de filmes e séries. Explore nossa vasta biblioteca e mergulhe em novas aventuras cinematicas.',
   keywords: [
