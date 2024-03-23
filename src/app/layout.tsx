@@ -51,6 +51,9 @@ export const metadata: Metadata = {
   category: 'Filmes e Séries',
   verification: {
     google: 'TxSfWovss5wRRrEt5OcWFHccbCtavJrUE9BnnYbOPzw'
+  },
+  alternates: {
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`
   }
 };
 
