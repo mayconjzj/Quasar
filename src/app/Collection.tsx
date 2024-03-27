@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 
 import { fetchTrending } from '@/services/http/ApiCalls';
@@ -7,6 +8,7 @@ import { MediaPoster } from '@/components/ui/MediaPoster';
 import { Skeleton } from '@/components/ui/Skeleton';
 
 export const Collection = async () => {
+  noStore();
   const [collectionMovies, collectionSeries] = await Promise.all([
     fetchTrending('movie'),
     fetchTrending('tv')
