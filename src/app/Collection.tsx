@@ -7,8 +7,10 @@ import { MediaPoster } from '@/components/ui/MediaPoster';
 import { Skeleton } from '@/components/ui/Skeleton';
 
 export const Collection = async () => {
-  const collectionMovies = await fetchTrending('movie');
-  const collectionSeries = await fetchTrending('tv');
+  const [collectionMovies, collectionSeries] = await Promise.all([
+    fetchTrending('movie'),
+    fetchTrending('tv')
+  ]);
 
   return (
     <section className="px-2 md:px-[30px]">
