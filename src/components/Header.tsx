@@ -10,6 +10,10 @@ export const Header = () => {
       <HeaderComponent.MainNav
         items={[
           {
+            name: 'Início',
+            href: '/'
+          },
+          {
             name: 'Filmes',
             href: '/discover/movies'
           },
