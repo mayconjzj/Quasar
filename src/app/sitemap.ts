@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date().toISOString()
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movie`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movies`,
       lastModified: new Date().toISOString()
     },
     {
@@ -16,14 +16,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${process.env.NEXT_PUBLIC_BASE_URL}/search`,
-      lastModified: new Date().toISOString()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movie`,
-      lastModified: new Date().toISOString()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/series`,
       lastModified: new Date().toISOString()
     }
   ];

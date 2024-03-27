@@ -15,7 +15,7 @@ const nextConfig = {
       {
         source: '/',
         destination: '/discover/movies',
-        permanent: false
+        permanent: true
       }
     ];
   }
