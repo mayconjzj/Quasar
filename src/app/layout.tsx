@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Maycon Douglas', url: 'https://github.com/mayconjzj' }],
   category: 'Filmes e Séries',
   verification: {
-    google: 'TxSfWovss5wRRrEt5OcWFHccbCtavJrUE9BnnYbOPzw'
+    google: 'ZW75MA7fyba2mEOImRwcHf-R4y0H5c2RB2M3WhN0Ke0'
   },
   alternates: {
     canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movies`
