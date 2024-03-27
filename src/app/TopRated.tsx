@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 
 import { fetchTopRated } from '@/services/http/TopRatedApi';
@@ -8,6 +9,7 @@ import { MediaBackdrop } from '@/components/ui/MediaBackdrop';
 import { firstDateYear } from '@/utils/FirstDateYear';
 
 export const TopRated = async () => {
+  noStore();
   const bet = Math.random() > 0.5;
   const mediaType = bet ? 'movie' : 'tv';
 
