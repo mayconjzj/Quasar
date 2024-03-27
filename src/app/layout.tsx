@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     google: 'TxSfWovss5wRRrEt5OcWFHccbCtavJrUE9BnnYbOPzw'
   },
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movies`
+    canonical: `${process.env.NEXT_PUBLIC_BASE_URL}`
   }
 };
 
