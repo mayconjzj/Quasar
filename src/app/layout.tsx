@@ -1,15 +1,14 @@
-import './globals.css';
+import '@/styles/globals.css';
 
 import type { Metadata } from 'next';
 
+import { Providers } from '@/context/Providers';
 import { Analytics } from '@vercel/analytics/react';
 
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 
 import { cn } from '@/lib/TailwindMerge';
-
-import { Providers } from './Providers';
 
 export const metadata: Metadata = {
   title: {
