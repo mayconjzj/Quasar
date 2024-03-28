@@ -1,7 +1,11 @@
 import { MetadataRoute } from 'next';
 
+import { fetchMoviesAndSeries } from '@/services/http/ApiCalls';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const sitemap: MetadataRoute.Sitemap = [];
+  const { results: movies } = await fetchMoviesAndSeries('movie');
+  const { results: series } = await fetchMoviesAndSeries('tv');
 
   sitemap.push({
     url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
@@ -16,6 +20,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   sitemap.push({
     url: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/series`,
     lastModified: new Date().toISOString()
+  });
+
+  movies.forEach((movie) => {
+    sitemap.push({
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/movie/${movie.id}`,
+      lastModified: new Date().toISOString()
+    });
+  });
+
+  series.forEach((series) => {
+    sitemap.push({
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/tv/${series.id}`,
+      lastModified: new Date().toISOString()
+    });
   });
 
   return sitemap;
