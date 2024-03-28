@@ -13,7 +13,7 @@ import { Skeleton } from '@/components/ui/Skeleton';
 import { createArray } from '@/utils/createArray';
 import { firstDateYear } from '@/utils/FirstDateYear';
 
-export type MediaInfoProps = {
+type MediaInfoProps = {
   params: {
     id: number;
     media_type: string;

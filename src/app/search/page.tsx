@@ -10,7 +10,7 @@ import { Skeleton } from '@/components/ui/Skeleton';
 import { formatDate } from '@/utils/FormatDate';
 import { getPageLink } from '@/utils/GetPageLink';
 
-export type SearchProps = {
+type SearchProps = {
   searchParams: {
     query: string;
     page: string;
@@ -111,13 +111,13 @@ export default async function Search({ searchParams }: SearchProps) {
   );
 }
 
-export type PaginationLinksProps = {
+type PaginationLinksProps = {
   currentPage: number;
   totalPages: number;
   endpoint: string;
 };
 
-export const PaginationLinks: React.FC<PaginationLinksProps> = ({
+const PaginationLinks: React.FC<PaginationLinksProps> = ({
   currentPage,
   totalPages,
   endpoint
