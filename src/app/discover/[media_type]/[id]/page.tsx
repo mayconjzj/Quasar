@@ -47,6 +47,9 @@ export const generateMetadata = async ({ params }: MediaInfoProps) => {
           height: 630
         }
       ]
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/${params.media_type}/${params.id}`
     }
   };
 };

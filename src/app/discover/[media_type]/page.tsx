@@ -32,6 +32,9 @@ export const generateMetadata = ({ params }: DiscoverProps) => {
     twitter: {
       title: `${mediaType}`,
       description: `Catalágo de ${mediaType}. Veja os ${mediaType} em destaque no Quasar.`
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/discover/${params.media_type}`
     }
   };
 };

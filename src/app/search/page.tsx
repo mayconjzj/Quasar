@@ -28,6 +28,9 @@ export const generateMetadata = ({ searchParams }: SearchProps) => {
     twitter: {
       title: `Pesquisa ${searchParams.query || ''}`,
       description: `${searchParams.query && `Procurando no Quasar por: ${searchParams.query}`}`
+    },
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_BASE_URL}/search`
     }
   };
 };
