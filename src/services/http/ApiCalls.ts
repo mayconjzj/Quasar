@@ -39,7 +39,3 @@ export const fetchSearch = async (query: string, page: string) => {
     params: { query, page }
   })) as MediaResults;
 };
-
-export const fetchMoviesAndSeries = async (mediaType: string) => {
-  return (await api.get(`/discover/${mediaType}`)) as MediaResults;
-};
